@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+    <script src="angular.min.js"></script>
+    <script>
+    	var obj=angular.module("myApp",[]);
+    	obj.controller("Democtrl",function($scope){
+    		$scope.id="";
+    		$scope.pass="";
+    		$scope.msg="";
+    		$scope.login=function(){
+    			if($scope.id == "sai" && $scope.pass=="123"){
+    				$scope.msg="wellcome";
+    			}
+    			else{
+    				$scope.msg="wrong id";
+    			}
+    		}
+    	});
+    </script>
+</head>
+<body ng-app="myApp">
+	<div ng-controller="Democtrl">
+		user id:-
+		<input type="text" ng-model="id">
+		password:-
+		<input type="password" ng-model="pass">
+		<button ng-click="login()">click</button> 
+		<span>{{msg}}</span>
+	</div>
+</body>
+</html>

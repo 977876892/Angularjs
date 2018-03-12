@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script src="angular.min.js"></script>
+	<script src="app.js"></script>
+</head>
+<body ng-app="myapp" ng-controller="demo">
+	<table border="2">
+		<tr ng-repeat="item in items">
+			<td>{{item}} <a href=""><span ng-click="cli(x)">*</span></a></td>
+		</tr>
+		<tr><td><input type="text" ng-model="xyz" placeholder="add items"></td></tr>
+		<tr><td><input type="submit" ng-click="sub()"></td></tr>
+	</table>
+	{{error}}
+</body>
+</html>

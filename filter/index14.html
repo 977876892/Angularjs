@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script src="angular.min.js"></script>
+	<script>
+  	var obj=angular.module("myApp",[]);
+
+  	obj.controller("DemoController",
+  		function($scope){
+            $scope.subjects=["ajs","html","js","css","java","responsive"];
+            $scope.a=true;
+  	});
+  	</script>
+</head>
+<body ng-app="myApp" ng-controller="DemoController">
+	<button ng-click="x=!x">click</button>
+	<ul ng-repeat="item in subjects | orderBy:a:x">
+		<li>{{item}}</li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,25 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+ 	<meta charset="utf-8">
+ 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+ 	<title></title>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+   <script>
+   	  var obj=angular.module("myApp",[]);
+   	  obj.controller("MyCtrl",
+   	  	function($scope,$interval)
+   	  	{
+           $scope.a=new Date().toLocaleTimeString();
+		   $interval(function(){
+		        $scope.a=new Date().toLocaleTimeString();
+		   },2000);
+   	  });
+   </script>
+ </head>
+ <body ng-app="myApp">
+ 	<div ng-controller="MyCtrl">
+ 		<h2>{{a}}</h2>
+ 	</div>
+ </body>
+ </html>

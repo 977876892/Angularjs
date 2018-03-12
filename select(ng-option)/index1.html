@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script src="angular.min.js"></script>
+	<script>
+		var app=angular.module("myapp",[]);
+		app.controller("demo",function($scope){
+			
+			$scope.items=
+			[
+               {name:"sai",class:"10th"},
+               {name:"om",class:"8th"},
+               {name:"hari",class:"7th"},
+			];
+		});
+	</script>
+</head>
+<body ng-app="myapp" ng-controller="demo">
+	
+    <select ng-model="y">
+    	<option ng-repeat="x in items" value="{{x.name}}"  value="{{x.class}}">{{x.name}}-{{x.class}}</option>
+
+    </select>
+ {{y}}
+
+   
+</body>
+</html>

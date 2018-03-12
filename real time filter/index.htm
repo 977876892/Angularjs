@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script src="angular.min.js"></script>
+	<script src="app.js"></script>
+</head>
+<body ng-app="myapp" ng-controller="demo">
+	<table border="2">
+		Select Rows:-<input type="number" step="1" min="0" max="5" ng-model="rows">
+		<tr>
+			<th>Name</th>
+			<th>Date of birth</th>
+			<th>Gender</th>
+			<th>Salary</th>
+		</tr>
+		<tr ng-repeat="x in items | limitTo:rows">
+			<td>{{x.name | uppercase}}</td>
+			<td>{{x.date | date:"dd/MM/yyyy"}}</td>
+			<td>{{x.gender | lowercase}}</td>
+			<td>{{x.salary | currency:"Rs"}}</td>
+		</tr>
+	</table>
+</body>
+</html>

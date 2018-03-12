@@ -1,0 +1,45 @@
+var obj=angular.module("myApp",["ngRoute"]);
+obj.config(function($routeProvider){
+   $routeProvider
+   .when("/Home",{
+   	templateUrl:"home.html",
+   	controller:"homectrl"
+   })
+   .when("/Email",{
+   	templateUrl:"email.html",
+   	controller:"emailctrl"
+   })
+   .when("/Switch",{
+    templateUrl:"switch.html",
+    controller:"switchctrl"
+   })
+   .when("/Gallery",{
+   	templateUrl:"img.html",
+   	controller:"imgctrl"
+   });
+});
+/*Home*/
+obj.controller("homectrl",function($scope){
+	$scope.detail=
+	[
+       {name:"sai",class:"10th",sub:"math"},
+       {name:"ram",class:"8th",sub:"eng"},
+       {name:"om",class:"9th",sub:"mil"}
+	];
+	$scope.item={name:"",class:"",sub:""};
+});
+/*Course*/
+obj.controller("emailctrl",function($scope){
+  $scope.email="";
+  $scope.pass="";
+  $scope.phone="";
+});
+/*Gallery*/
+obj.controller("imgctrl",function($scope){
+	$scope.img=["1.jpg","2.jpg","3.jpg"];
+});
+/*switch*/
+obj.controller("switchctrl",function($scope){
+	$scope.well="well come";
+	$scope.detal=["Ajs","HTML5","css","js"];
+});

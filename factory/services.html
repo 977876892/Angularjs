@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+   <script src="servic.js"></script>
+   <script src="app.js"></script>
+</head>
+<body ng-app="myApp">
+	<div ng-controller="DemoController">
+		first name:
+		<input type="text" ng-model="a"><br/>
+		2nd name:
+		<input type="text" ng-model="b"><br/>
+		<input type="button" ng-click="getsumresult()" value="+">
+		<input type="button" ng-click="getmultiplyresult()" value="-"><br/>
+		<span>result:{{result}}</span>
+	</div>
+</body>
+</html>

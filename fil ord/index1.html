@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+    <script src="angular.min.js"></script>
+    <script>
+    	var obj=angular.module("myApp",[]);
+    	obj.controller("democtrl",function($scope){
+    		$scope.course=[
+    			{name:"sai",sub:"ajs",time:"mor"},
+    			{name:"jai",sub:"java",time:"night"},
+    			{name:"om",sub:"css",time:"eve"},
+    			{name:"jagdish",sub:"html",time:"mor"},
+    			{name:"syam",sub:"jquary",time:"eve"},
+    			{name:"ram",sub:"php",time:"night"}
+    		];
+    	});
+    </script>
+</head>
+<body ng-app="myApp">
+	<div ng-controller="democtrl">
+		
+		<table border="2">
+			<tr>
+				<th ng-click="x='name';reverse=!reverse">Name</th>
+			
+				<th ng-click="x='sub';reverse=!reverse">Subject</th>
+			
+				<th ng-click="x='time';reverse=!reverse">Time</th>
+			</tr>
+			<tr ng-repeat="item in course |orderBy:x:reverse">
+				<td>{{item.name}}</td>
+				<td>{{item.sub}}</td>
+				<td>{{item.time}}</td>
+			</tr>
+		</table> 
+	</div>
+</body>
+</html>

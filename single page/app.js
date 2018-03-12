@@ -1,0 +1,31 @@
+var obj=angular.module("myApp",["ngRoute"]);
+obj.config(function($routeProvider){
+	$routeProvider
+	.when("/Home",{
+		templateUrl:"home.html",
+		controller:""
+	})
+	.when("/About",{
+		templateUrl:"about.html",
+		controller:"Coursectrl"
+	})
+	.when("/Contact",{
+		templateUrl:"contact.html",
+		controller:"Detailctrl"
+	})
+	.when("/Client",{
+		templateUrl:"client.html",
+		controller:""
+	});
+});
+obj.controller("Coursectrl",function($scope){
+	$scope.course=["ajs","html","js","css"];
+});
+obj.controller("Detailctrl",function($scope){
+	$scope.detail=
+	[
+		{sid:1025,sname:"sai"},
+		{sid:55,sname:"ram"},
+		{sid:6565,sname:"jai"}
+	];
+});

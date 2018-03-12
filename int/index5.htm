@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<script src="angular.min.js"></script>
+	<script>
+		var app=angular.module("my",[]);
+		app.controller("demo",function($scope,demofac){
+			$scope.x=
+			[
+                  {fname:"sai",lname:"ram"},
+                  {fname:"rai",lname:"om"},
+                  {fname:"hari",lname:"jai"}
+			];
+			$scope.add=function(x,y){
+				$scope.res=demofac.sum(x,y);
+			}
+		});
+		app.factory("demofac",function(){
+           var obj={};
+           obj.sum=function(x,y){
+           	var n=x+y;
+           	return n;
+           }
+           return obj;
+		})
+	</script>
+</head>
+<body ng-app="my" ng-controller="demo">
+	<table border="">
+		<tr>
+			<th>FirstName</th>
+			<th>LastName</th>
+			<th>Buttons</th>
+		</tr>
+		<tr ng-repeat="item in x">
+			<td>{{item.fname}}</td>
+			<td>{{item.lname}}</td>
+			<td><button ng-click="add(item.fname,item.lname)">Add</button></td>
+		</tr>
+		<tr>
+			<td>Result</td>
+			<td>{{res}}</td>
+		</tr>
+	</table>
+</body>
+</html>

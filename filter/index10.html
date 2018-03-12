@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<script src="angular.min.js"></script>
+	<script>
+		var app=angular.module("my",[]);
+		app.controller("demo",function($scope){
+           $scope.xyz=
+           [
+              {name:"sai",class:"10th",img:"1.jpg"},
+              {name:"ram",class:"8th",img:"2.jpg"},
+              {name:"om",class:"9th",img:"3.jpg"}
+           ];
+           $scope.fil={name:"",class:"",img:""};
+           $scope.select=["sai","ram","om"];
+		});
+	</script>
+</head>
+<body ng-app="my" ng-controller="demo">
+<input type="text" ng-model="fil.name">
+<select ng-model="fil.name" ng-options="x for x in select"></select>
+<select>
+	<option  ng-repeat="a in xyz" value="">{{a.name}}-{{a.class}}</option>
+</select>
+	<table border="2">
+		<tr>
+			<th>Name</th>
+			<th>Class</th>
+			<th>Img</th>
+		</tr>
+		<tr ng-repeat="item in xyz | filter:fil">
+			<td>{{item.name}}</td>
+			<td>{{item.class}}</td>
+			<td>
+				<img src="{{item.img}}" alt="1">
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

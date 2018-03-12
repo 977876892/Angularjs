@@ -1,0 +1,54 @@
+<html>
+<head>
+	<title> book example </title>
+	<script src="angular.min.js"></script>
+</head>
+	<body>
+	<!--<article ng-app="booksInventoryApp">
+  <!--<section ng-controller="booksCtrl"> -->
+		<div ng-app="booksInventoryApp" ng-controller="booksCtrl">
+		<h2 ng-repeat="book in data.books.salesPerMonth">{{book.amount}}</h2> 
+		<table width=40px rule=all border=1>
+			<caption>Getting book details with service</caption>
+			<tr>
+			<td>ID</td>
+			<td>Name</td>
+			<td>Author</td>
+			<td>Price</td>
+			<td>Amount</td>
+			<td>Url</td>
+			</tr>
+	<tr ng-repeat="book in data.books">
+	<td>{{book.id}}</td>
+	<td>{{book.name}}</td>
+	<td>{{book.author}}</td>
+	<td>{{book.price}}</td>
+	<td>{{book.amount}}</td>
+	<td ><img src="{{book.url}}" width=100px;height=100px></td>
+	<td >
+		<table border="1">
+			<tr ng-repeat="book1 in book.salesPerMonth">
+				<td >{{book1.month}}</td>
+				<td >{{book1.amount}}</td>
+			</tr>
+		</table>
+	</td>
+	</table>
+<!--   </section>
+</article> -->
+</div>
+</body>
+</html>
+
+<script>
+var app = angular.module('booksInventoryApp', []);
+
+app.controller('booksCtrl', function($scope,$http) {
+
+  $http.get("https://whispering-woodland-9020.herokuapp.com/getAllBooks")
+    .success(function(data) {
+      $scope.data = data;    
+});
+});
+</script>
+	  

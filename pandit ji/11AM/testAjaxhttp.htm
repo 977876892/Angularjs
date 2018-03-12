@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
+</head>
+<body ng-app="myapp">
+
+  <div ng-controller="MyController" >
+    <button ng-click="myData.doClick(item, $event)">Send AJAX Request</button>
+    <br/>
+	<table>
+	 <tr>
+	  <th>Sno</th>
+	  <th>Name</th>
+	  <th>City</th>
+	  <th>Country</th>
+	 </tr>
+	 <tr ng-repeat="data in myData.fromServer">
+	  `<td>{{$index+1}}</td>
+	  <td>{{data.Name}}</td>
+	  <td>{{data.City}}</td>
+	  <td>{{data.Country}}</td>
+	</table>
+	
+  </div>
+
+  <script>
+    angular.module("myapp", [])
+        .controller("MyController", function($scope, $http) {
+		
+		   $scope.myData = {};
+            $scope.myData.doClick = function(item, event) {
+
+                var responsePromise = $http.get("http://www.w3schools.com/angular/customers.php");
+
+                responsePromise.success(function(data, status, headers, config) {
+				$scope.myDyourchoic name = data.records;
+                });
+                responsePromise.error(function(data, status, headers, config) {
+                    alert("AJAX failed!"+status);
+                });
+            }
+
+
+        } );
+  </script>
+
+</body>
+
+</html>

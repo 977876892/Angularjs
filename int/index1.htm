@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script src="angular.min.js"></script>
+	<script>
+		var app=angular.module("my",[]);
+		app.controller("demo",function($scope,demofac){
+			
+			$scope.f="";
+			$scope.l="";
+			$scope.add=function(){
+                 var n=demofac.sum(($scope.f),($scope.l));
+		          $scope.res=n;
+			}
+		});
+		app.factory("demofac",function(){
+			var obj={};
+			obj.sum=function(x,y){
+				var n=x+y;
+				return n;
+			}
+			return obj;
+		});
+	</script>
+</head>
+<body ng-app="my" ng-controller="demo">
+	<table border="">
+		<tr>
+			<th>FirstName</th>
+			<th>LastName</th>
+			<th>Buttons</th>
+		</tr>
+		<tr>
+			<td><input type="text" ng-model="f"></td>
+			<td><input type="text" ng-model="l"></td>
+			<td><button ng-click="add()">Add</button></td>
+		</tr>
+		<tr>
+			<td>Result</td>
+			<td>{{res}}</td>
+		</tr>
+	</table>
+</body>
+</html>

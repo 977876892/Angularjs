@@ -1,0 +1,25 @@
+<html>
+<title>EmpData</title>
+<head>
+<script src="angular.min.js"></script>
+<script src="empData.js"></script>
+
+</head>
+{{"Emp Data Information"}}
+<body ng-app="EmpApp">
+<div ng-controller="EmpController">
+<table border="1">
+<tr><input ng-model="empsal"></tr>
+<tr><th>EmpID</th><th>EmpName</th><th>EmpAddr</th><th>EmpSal</th><th>EmpDesg</th><th>EmpDept</th></tr>
+<tr ng-repeat="emp in EmpData |filter:empsal |orderBy:'empid' ">
+<td>{{emp.empid}}</td>
+<td>{{emp.empname |uppercase }}</td>
+<td>{{emp.empaddr |lowercase}}</td>
+<td>{{emp.empsal | currency}}</td>
+<td>{{emp.empdesg}}</td>
+<td>{{emp.empdept}}</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

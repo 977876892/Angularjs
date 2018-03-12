@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>AngularJS Routes example</title>
+    <script src="angular.min.js"></script>
+    <script src="angular-locale_dadk.js"></script>
+</head>
+
+
+<body ng-app="myapp">
+
+AngularJS I18n
+
+<div ng-controller="mycontroller">
+    {{theDate  | date : "fullDate"}} <br/>
+    {{theValue | currency:'INR' }}
+</div>
+
+
+
+<script>
+    var module  = angular.module("myapp", []);
+
+    module.controller("mycontroller", function($scope) {
+
+        $scope.theDate  = new Date();
+        $scope.theValue = 123.45;
+		
+
+    });
+</script>
+
+</body>
+</html>

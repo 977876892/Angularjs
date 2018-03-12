@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+	<script>
+		var app=angular.module("my",[]);
+		app.controller("demo",function($scope){
+			$scope.x=["sai","ram","jai","hari"];
+			$scope.y={name:"om",class:"10th"};
+		});
+	</script>
+</head>
+<body ng-app="my" ng-controller="demo">
+	<div ng-init="first='sai';secand='ram'"></div>
+	<h2 ng-bind="first + secand"></h2>
+	<h3>Expression:-
+	{{first}}</h3>
+
+    <ul>
+    	<li ng-repeat="item in x">{{item}}</li>
+    </ul>
+    <h4 ng-repeat="d in y">{{d.name}}</h4>
+</body>
+</html>

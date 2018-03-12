@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script src="angular.min.js"></script>
+	<script>
+	    var obj=angular.module("myapp",[]);
+		obj.controller("democtrl",function($scope){
+			$scope.items=
+			[
+                {name:"sai",classs:"10th",sub:"mil"},
+                {name:"tata",classs:"8th",sub:"html"},
+                {name:"sai",classs:"9th",sub:"eng"},
+                {name:"ram",classs:"7th",sub:"geo"},
+                {name:"ram",classs:"6th",sub:"mil"},
+                {name:"sai",classs:"5th",sub:"his"},
+                {name:"ram",classs:"10th",sub:"java"},
+                {name:"sai",classs:"10th",sub:"js"},
+                {name:"ram",classs:"10th",sub:"mil"}
+			];
+			
+			$scope.x={name:"",classs:"",sub:""};
+		});
+	</script>
+</head>
+<body ng-app="myapp">
+	<div ng-controller="democtrl">
+		<table border="2">
+		    <tr>
+		    	<td><input type="text" ng-model="x.name"></td>
+		    	<td><input type="submit"></td>
+		    </tr>
+			<tr>
+				<th>Name</th>
+				<th>Class</th>
+				<th>Subject</th>
+			</tr>
+			<tr ng-repeat="x in items | filter:x">
+				<td>{{x.name}}</td>
+				<td>{{x.class}}</td>
+				<td>{{x.sub}}</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

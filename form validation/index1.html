@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+     <script src="angular.min.js"></script>
+     <script>
+     	var obj=angular.module("myApp",[]);
+     	obj.controller("democtrl",function($scope){
+           $scope.name="";
+           $scope.email="";
+           $scope.pass="";
+           $scope.num="";
+     	});
+     </script>
+     <style>
+     	input.ng-invalid.ng-dirty{
+     		border: 1px solid red;
+     	}
+     </style>
+</head>
+<body ng-app="myApp">
+	<div ng-controller="democtrl">
+		<form action="" name="frm" novalidate>
+			Name:-
+			<input type="text" ng-model="name" name="name" ng-required="true">
+            <span ng-show="frm.name.$error.required && frm.name.$dirty">
+            	Name is required?
+            </span>
+			 <br>
+			Email:-
+			<input type="email" ng-model="email" name="email" ng-required="true"> 
+              <span ng-show="frm.email.$error.required && frm.email.$dirty">
+            	email is required?
+            </span>
+			<br>
+			Password:-
+			<input type="password" ng-model="pass"> <br>
+			Number:-
+			<input type="number" ng-model="num"> <br>
+			<input type="button" value="submit">
+		</form>
+	</div>
+</body>
+</html>

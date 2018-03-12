@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script src="angular.min.js"></script>
+	<script src="app.js"></script>
+	<script src="ser.js"></script>
+</head>
+<body ng-app="myapp" ng-controller="democtrl">
+	<table border="2">
+		<tr>
+			<td>1st Number:-</td>
+			<td><input type="text" placeholder="first number" ng-model="a"></td>
+		</tr>
+		<tr>
+			<td>2nd Number:-</td>
+			<td><input type="text" placeholder="second number" ng-model="b"></td>
+		</tr>
+		<tr>
+			<td>Result</td>
+			<td>{{result}}</td>
+			<td><input type="button" value="*" ng-click="mul()"> <input type="button" value="+"  ng-click="sum()"></td>
+		</tr>
+	</table>
+</body>
+</html>

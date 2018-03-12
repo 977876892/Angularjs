@@ -1,0 +1,22 @@
+<html>
+<head>
+<script src="js/angular.min.js"></script>
+</head>
+<div ng-controller="Controller" ng-app="docsSimpleDirective">
+  <div my-customer></div>
+</div>
+<script>
+angular.module('docsSimpleDirective', [])
+.controller('Controller', ['$scope', function($scope) {
+  $scope.customer = {
+    name: 'Naomi',
+    address: '1600 Amphitheatre'
+  };
+}])
+.directive('myCustomer', function() {
+  return {
+    template: 'Name: {{customer.name}} Address: {{customer.address}}'
+  };
+});
+</script>
+</html>

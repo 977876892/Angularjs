@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script src="angular.min.js"></script>
+	<script>
+		var obj=angular.module("myApp",[]);
+		obj.controller("DemoController",
+			function($scope){
+                 $scope.course=["ajs","html","css","js","java","ui"];
+                 $scope.a=false;
+		});
+	</script>
+	<style>
+		.c1{color: red;}
+		.c2{color: green;}
+	</style>
+</head>
+<body ng-app="myApp">
+	<div ng-controller="DemoController">
+		<input type="button" ng-click="a=!a" value="click">
+		<h1 ng-repeat="item in course | orderBy:item:a" ng-class="{c1:true}">{{item}}</h1>
+	</div>
+</body>
+</html>

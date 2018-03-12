@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script src="angular.min.js"></script>
+	<script src="angular-route.js"></script>
+	<script src="app.js"></script>
+	<style>
+		.nav{
+			width:30%;
+			height:50px;
+			background-color: teal;
+			margin: 0px auto;
+		}
+		.nav ul{
+			list-style: none;
+			margin: 0px;
+			padding: 0px;
+		}
+		.nav ul li{
+			float: left;
+		}
+		.nav li a{
+			color: white;
+			text-align: center;
+			font-size: 23px;
+			padding-left:22px;
+			line-height:50px;  
+			font-family: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
+            text-decoration: none;
+		}
+		.nav li a:hover{
+			color: gray;
+			background-color: purple;
+			display: block;
+		}
+	</style>
+</head>
+<body ng-app="myapp">
+<div class="nav">
+	<ul>
+		<li><a href="" ng-click="mode='one'">Home |</a></li>
+		<li><a href="" ng-click="mode='two'">About |</a></li>
+		<li><a href="" ng-click="mode='three'">Services |</a></li>
+		<li><a href="" ng-click="mode='four'">Contact</a></li>
+	</ul>
+	<div ng-switch="mode">
+		<div ng-switch-when="one">
+			<div ng-controller="onectrl">
+				<img ng-repeat="one in item1" src="{{one}}" alt="">
+			</div>
+		</div>
+		<div ng-switch-when="two" ng-controller="twoctrl">
+			<table border="2">
+				<tr>
+					<td>Name</td>
+					<td><input type="text" placeholder="name" ng-model="newdel.name"></td>
+					<td>Phone</td>
+					<td><input type="number" placeholder="Number" ng-model="newdel.number"></td>
+					<td>City</td>
+					<td><input type="text" placeholder="city" ng-model="newdel.city"></td>
+					<td><input type="submit" ng-click="save()"></td>
+				</tr>
+			</table>
+			<table border="2"  style="width:100%;">
+				<tr><td><input type="text"  style="width:100%;" placeholder="name search" ng-model="ser.name"></td></tr>
+				
+			</table>
+			<table border="2">
+				<tr>
+					<th>Name</th>
+					<th>Phone</th>
+					<th>City</th>
+				</tr>
+				<tr ng-repeat="item in del | filter:ser">
+					<td>{{item.name}}</td>
+					<td>{{item.phone}}</td>
+					<td>{{item.city}}</td>
+					<td><input type="button" value="Delet" ng-click="delet(item)"></td>
+					<td><input type="button" value="Edit" ng-click="edit(item)"></td>
+				</tr>
+			</table>
+		</div>
+		<div ng-switch-when="three"></div>
+		<div ng-switch-when="four"></div>
+	</div>
+</div>
+</body>
+</html>

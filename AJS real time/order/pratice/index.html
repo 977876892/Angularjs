@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+	<script src="app.js"></script>
+</head>
+<body ng-app="myapp">
+	<div ng-controller="democtrl">
+		<table border="2">
+			<tr>
+				<th>Name</th>
+				<th>Value</th>
+			</tr>
+			<tr  ng-repeat="item in details"  ng-click="toggle(item)" ng-class="{active:item.active}">
+				<td >{{item.name}}</td>
+				<td><span>{{item.rate | currency}}</span></td>
+			</tr>
+			<tr>
+				<td>Total</td>
+				<td style="background-color:gray;color:white;">{{total() | currency}}</td>
+			</tr>
+		</table>
+	</div>
+	
+</body>
+</html>

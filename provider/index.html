@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script src="angular.min.js"></script>
+	<script>
+		var app=angular.module("my",[]);
+		//provider
+		app.provider("myprovider",function(){
+			this.$get=function(){            //provider method using a this.$get
+				return "my name is sai";
+			};
+		});
+		app.controller("myctrl2",function(myprovider){
+			console.log("provider name is:-" + myprovider);
+		});
+		app.controller("myctrl3",function(myprovider){
+			console.log("provider name is:-" + myprovider);
+		});
+
+
+		//factory
+		app.factory("demofac",function(){   //factory method not using a this.$get
+			return "my name is bikash";
+		});
+		
+		app.controller("myctrl",function(demofac){
+			console.log("factory name is:-" + demofac);
+		});
+		app.controller("myctrl1",function(demofac){
+			console.log("factory name is:-" + demofac);
+		});
+	</script>
+</head>
+<body ng-app="my">
+	<!--factory-->
+	<div ng-controller="myctrl"></div>
+	<div ng-controller="myctrl1"></div>
+	<!--provider-->
+	<div ng-controller="myctrl2"></div>
+	<div ng-controller="myctrl3"></div>
+</body>
+</html>

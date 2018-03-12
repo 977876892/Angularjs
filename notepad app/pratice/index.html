@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script src="angular.min.js"></script>
+    <script>
+    	var obj=angular.module("myapp",[]);
+    	obj.controller("democtrl",function($scope){
+          $scope.msg="";
+          $scope.left=function(){
+          	return 100-$scope.msg.length;
+          };
+          $scope.save=function(){
+          	alert("saved");
+          };
+          $scope.clear=function(){
+          	$scope.msg="";
+          };
+    	});
+    </script>
+</head>
+<body ng-app="myapp" ng-controller="democtrl">
+<p style="text-align:center;">
+	<textarea style="background-color:black;color:white;" cols="80" rows="30" ng-model="msg"></textarea>
+		<button ng-click="save()">Save</button>
+		<button ng-click="clear()">Clear</button>
+	</p>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script src="angular.min.js"></script>
+	<script>
+		var obj=angular.module("myApp",[]);
+		obj.controller("ctrl",function($scope){
+			$scope.data=
+			[
+               {name:"sairam",sub:"html",fess:20000},
+               {name:"om",sub:"java",fess:3000},
+               {name:"sri",sub:"ui",fess:50000}
+			];
+		});
+	</script>
+</head>
+<body ng-app="myApp" ng-controller="ctrl">
+	<p ng-repeat="x in [10,20,30,40,50,60,70,80]">{{x}}....{{$index}}....{{$first}}....{{$middle}}....{{$last}}....{{$even}}....{{$odd}}</p>
+	<header ng-repeat-start="y in data">{{y.name}}</header>
+	<div>{{y.sub}}</div>
+	<footer ng-repeat-end>
+		{{y.fess}}
+	</footer> 
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script src="angular.min.js"></script>
+	<script>
+		var app=angular.module("myapp",[]);
+		app.controller("demo",function($scope){
+			$scope.item=["salt","rice","sugar","oil"];
+
+		});
+       $scope.sub=function(){
+       	      $scope.error="";
+       	      
+       	}
+
+	</script>
+</head>
+<body ng-app="myapp" ng-controller="demo">
+	<table border="2">
+		<tr ng-repeat="items in item">
+			<td>{{items}}<a href=""><span ng-click="cli()">*</span></a></td>
+		</tr>
+		<tr>
+			<td><input type="text" placeholder="order" ng-model="order"></td>
+			<td><input type="submit" ng-click="sub()"></td>
+		</tr>
+		<h2>{{error}}</h2>
+	</table>
+</body>
+</html>

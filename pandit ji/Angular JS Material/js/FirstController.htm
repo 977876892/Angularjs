@@ -1,0 +1,22 @@
+<html>
+<title>Discount App</title>
+<head>
+ <script src="angular.min.js"></script>
+ </head>
+ {{"Contrller First App"}}
+ <body ng-app="myApp">
+ <div ng-controller="HelloController">
+ <h1>{{helloTo.title}}</h1>
+ </div>
+ </body>
+ </html>
+ 
+ 
+ <script>
+ 
+ var app=angular.module("myApp",[]);
+ app.controller("HelloController",function($scope){
+ $scope.helloTo={};
+ $scope.helloTo.title="Hai How Are You!!!";
+ });
+ </script>

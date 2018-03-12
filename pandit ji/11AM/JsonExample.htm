@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>ngRepeat Example</title>
+<script  src="angular.min.js"></script>
+<script  src="json.js"></script>
+</head>
+<body ng-app="jsonapp">
+{{"Employee Details"}}
+<div ng-controller="jsonController">
+<table border="1">
+ <tr>
+  <th>EmpId</th>
+  <th>EmpName</th>
+  <th>EmpAge</th>
+  <th>EmpDesg</th>
+  <th>EmpSal</th>
+  <th>EmpDept</th>
+</tr>
+<tr ng-repeat="e in empdata">
+<td> {{e.empid }}</td>
+<td> {{e.empname|uppercase}}</td>
+<td> {{e.empage}}</td>
+<td> {{e.empdesg}}</td>
+<td> {{e.empsal|currency:'INR'}}</td>
+<td> {{e.empdept}}</td>
+
+</tr>
+</table>
+</div>
+</body>
+</html>

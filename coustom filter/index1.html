@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script>
+  	var obj=angular.module("myApp",[]);
+
+  	obj.controller("LoginController",
+  		function($scope){
+          $scope.uid="";
+          $scope.pwd="";
+          $scope.mess="";
+          $scope.fn_login=function()
+          {
+          	if($scope.uid == "admin" && $scope.pwd == "123")
+          	{
+
+          		$scope.mess="wellcome";
+          	}
+          	else
+          	{
+          		$scope.mess="wrong";
+          	}
+          };
+  	});
+  </script>
+</head>
+<body ng-app="myApp">
+	<div ng-controller="LoginController">
+		user id:<input type="text" ng-model="uid">
+		password:<input type="password" ng-model="pwd">
+		<input type="button" value="login" ng-click="fn_login()">
+		<span>{{mess}}</span>
+	</div>
+</body>
+</html>

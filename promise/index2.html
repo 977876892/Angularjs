@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script>
+    	var app=angular.module("my",[]);
+    	app.controller("demo",function($scope,getser){
+              getser.getpromise().then(function(result){
+              	$scope.x=result;
+              });
+    	});
+        
+    </script>
+    <script src="services.js"></script>
+</head>
+<body ng-app="my" ng-controller="demo">
+  <span>{{x}}</span>
+</body>
+</html>

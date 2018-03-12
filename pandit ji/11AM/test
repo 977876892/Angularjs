@@ -1,0 +1,46 @@
+short
+medium
+fullDate
+shortDate
+mediumDate
+longDate
+shortTime
+mediumTime
+
+limitTo: 5
+
+
+<div>Filtered: {{myData.text | myFilter}}</div>
+    
+    
+<script>
+    var module = angular.module("myapp", []);
+
+    module.filter('myFilter', function() {
+
+        return function(stringValue) {
+            return stringValue.substring(0,3);
+        };
+    });
+</script>  
+
+
+<div>Filtered: {{myData.text | myFilter:2:5}}</div>
+
+<script>
+    var module = angular.module("myapp", []);
+
+    module.filter('myFilter', function() {
+
+        return function(stringValue, startIndex, endIndex) {
+            return stringValue.substring(parseInt(startIndex), parseInt(endIndex));
+        };
+    });
+</script>
+
+{{ theDate  | date: 'shortDate' }}
+ {{ theDate  | date: 'longDate'  }}
+The Currency Filter
+{{ theValue | currency : '$' }}
+{{ theValue | currency : '£' }}
+{{ theValue | currency : '€' }}

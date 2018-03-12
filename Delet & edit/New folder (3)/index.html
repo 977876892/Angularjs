@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <link rel="stylesheet" href="">
+  <script src="angular.min.js"></script>
+  <script src="app.js"></script>
+</head>
+<body ng-app="myapp" ng-controller="Democtrl">
+  <table border="2">
+  
+    <tr>
+      <td><input type="text" ng-model="new.name"></td>
+      <td><input type="text" ng-model="new.class"></td>
+      <td><input type="submit" ng-click="sub()"></td>
+    </tr>
+    <tr ng-repeat="item in contacts">
+      <td>{{item.name}}</td>
+      <td>{{item.class}}</td>
+      <td><input type="submit" value="delet" ng-click="delet(item)"></td>
+      <td><input type="submit" value="edit" ng-click="edit(item)"></td>
+    </tr>
+  </table>
+</body>
+</html>

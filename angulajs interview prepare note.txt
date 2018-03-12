@@ -1,0 +1,40 @@
+* AngularJS:-AngularJS is a structural and JavaScript framework for dynamic web apps.It can be added to an HTML page with a <script> tag.
+
+*AngularJS Extends HTML:-AngularJS extends HTML with ng-directives.
+  a.The ng-app directive defines an AngularJS application.
+  b.The ng-model directive binds the value of HTML controls (input, select, textarea)       to application data.
+  c. The ng-bind directive binds application data to the HTML view.
+  d.The ng-init directive initializes AngularJS application variables.
+
+*AngularJS Applications:-
+  a.AngularJS modules define AngularJS applications.
+  b.AngularJS controllers control AngularJS applications.
+  c.The ng-app directive defines the application, the ng-controller directive defines       the controller.
+
+*Module :-An AngularJS module defines an application.The module refers to an HTML element in which the application will run. Now you can add controllers, directives, filters, and more, to your AngularJS application.The module is a container for the application controllers.
+
+*AngularJS Directive:-AngularJS has a set of built-in directives which offers   functionality to your applications.AngularJS directives are-ng-app,ng-init,ng-  model.
+
+*Data Model:-The data model is a collection of data available for the application
+
+*Controllers:-AngularJS controllers control the data of AngularJS applications.
+  AngularJS controllers are regular JavaScript Objects.AngularJS applications are controlled by controllers.The ng-controller directive defines the application controller.A controller is a JavaScript Object.
+
+*Filter:-Filters can be added in AngularJS to format data.
+
+*Service:-In AngularJS, a service is a function, or object, that is available for  your AngularJS application.
+
+*$http:-The AngularJS $http service makes a request to the server, and returns a response.
+
+*$http service methods:-.delete()
+                        .get()
+                        .head()
+                        .jsonp()
+                        .patch()
+                        .post()
+                        .put()
+*jQuery:-jQuery is a JavaScript library designed to client-side scripting of HTML. jQuery is the most popular JavaScript library and It is open source .
+
+*Directives:- Directives are markers on DOM elements (such as elements, attributes, css etc.). AngularJS has built-in directives (ngBind, ngModel, ngRoutes…).
+
+*MVVM(Model–view–view-model):-MVVM facilitates a separation of development of the graphical user interface. GUI code – from development of the business logic or back-end logic .

@@ -1,0 +1,22 @@
+var obj=angular.module("myApp",["ngRoute"]);
+obj.config(function($routeProvider){
+	$routeProvider
+	.when("/Home",{
+		templateUrl:"one.html",
+		controller:"" 
+	})
+	.when("/courses",{
+		templateUrl:"courses.html",
+		controller:"coursesctrl"
+	})
+	.when("/Details",{
+		templateUrl:"details.html",
+		controller:"detailsctrl"
+	});
+});
+obj.controller("coursesctrl",function($scope){
+	$scope.courses=["AJS","JS","JSON","HTML","CSS"];
+});
+obj.controller("detailsctrl",function($scope){
+	$scope.s1={sid:2020,sname:"sai"};
+});

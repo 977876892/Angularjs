@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <script src="angular.min.js"></script>
+  <script>
+    var obj=angular.module("myApp",[]);
+    obj.directive("demodir",function(){
+        var obj={};
+        obj.restrict="EA";
+        obj.replace=false;
+        obj.template="<p>well come</p>";
+        return obj;
+    });
+    /*studentlist*/
+    obj.directive("studir",function(){
+      var obj={};
+      obj.restrict="EA";
+      obj.replace=true;
+      obj.templateUrl="link.html";
+      return obj;
+    });
+    /*controller*/
+    obj.controller("democtrl",function($scope){
+      $scope.name="sairam";
+    });
+    /*stucontroller*/
+    obj.controller("stuctrl",function($scope){
+      $scope.stu=
+      [
+         {name:"sai",rollno:20,sub:"mil"},
+         {name:"ram",rollno:40,sub:"eng"},
+         {name:"biki",rollno:80,sub:"AJS"}
+      ];
+    });
+  </script>
+</head>
+<body ng-app="myApp">
+  <div ng-controller="democtrl">
+    <demodir></demodir>
+  </div>
+  <div ng-controller="stuctrl">
+  <h2>element view</h2>
+  <studir></studir>
+  <h2>attribute view</h2>
+    <div studir></div>
+  </div>
+</body>
+</html>

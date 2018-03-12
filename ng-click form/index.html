@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+    <script src="angular.min.js"></script>
+    <script>
+    	var obj=angular.module("myApp",[]);
+    	obj.controller("DemoCtrl",
+    		function($scope){
+                $scope.fname="";
+                $scope.city="";
+                $scope.email="";
+    	});
+    </script>
+</head>
+<body ng-app="myApp">
+	<div ng-controller="DemoCtrl">
+	
+		 <form name="f1" action="" method="" novalidate>
+		 	1st name:-
+		 	<input type="text" ng-model="fname" ng-required="true" name="t1">
+		 	<span ng-show="f1.t1.$error.required && f1.t1.$dirty">enter ur name</span>
+		 	city:-
+		 	<input type="text" ng-model="city" ng-required="true" name="t2">
+            <span ng-show="f1.t2.$error.required && f1.t2.$dirty">enter ur city</span>
+            email:-
+            <input type="email" name="t3" ng-model="email">
+            <span ng-show="f1.t3.$error.email && f1.t3.$dirty">enter ur email id</span>
+            <input type="submit" ng-disabled="f1.$invalid" value="submit">
+		 </form>
+	</div>
+</body>
+</html>

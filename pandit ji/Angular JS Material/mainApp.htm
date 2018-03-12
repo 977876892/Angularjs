@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link rel="stylesheet" href="bootstrap.css"/>
+ <script  src="/angular.min.js"></script>
+ <script src="js/mainApp.js"></script>
+ <script src="js/EmployeeController.js"></script>
+</head>
+<body ng-app="myApp" >
+	<h1>{{"MainApp APP EXAMPLE"}}</h1>
+	<div ng-controller="EmployeeController">	
+	<table  class="table table-stripped table-bordered">
+	 <tr>
+	  <th>Emp Name</th>
+	  <th>Emp Id</th>
+	  <th>Emp Dept</th>
+	  <th>Emp Sal</th>
+	  <th>Emp Address</th>
+	 </tr>
+	  <tr ng-repeat="emp in employees">
+	   <td>{{emp.name}}</td>
+	   <td>{{emp.empid}}</td>
+	   <td>{{emp.dept}}</td>
+	   <td>{{emp.sal}}</td>
+	   <td>{{emp.address}}</td>
+	  </tr>
+	 </table>
+	</div>
+</body>
+</html>

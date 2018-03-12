@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script src="angular.min.js"></script>
+	<script>
+		var obj=angular.module("myapp",[]);
+		obj.controller("democtrl",function($scope){
+			$scope.detail=
+			[
+               {name:"sai",roll:20,sub:"mil",pic:"1.jpg"},
+               {name:"om",roll:50,sub:"math",pic:"3.jpg"},
+               {name:"sai",roll:28,sub:"his",pic:"1.jpg"},
+               {name:"jai",roll:88,sub:"eng",pic:"2.jpg"}
+			];
+			$scope.sear={name:"",roll:"",sub:""};
+		});
+	</script>
+</head>
+<body ng-app="myapp">
+	<div ng-controller="democtrl">
+		<img src="1.jpg" alt="" ng-click="mode='img'">
+        <img src="2.jpg" alt="" ng-click="mode='file'">
+        <div ng-switch="mode">
+        	<div ng-switch-when="img">
+        		<img ng-repeat="item in detail" src="{{item.pic}}" alt="">
+        	</div>
+        	<div ng-switch-when="file">
+        		<input type="text" ng-model="sear.name"> <br>
+        		<table border="2">
+        			<tr ng-repeat="item in detail |filter:sear">
+        				<td>{{item.name}}</td>
+        				<td>{{item.roll}}</td>
+        				<td>{{item.sub}}</td>
+        			</tr>
+        		</table>
+        	</div>
+        </div>
+	</div>
+</body>
+</html>

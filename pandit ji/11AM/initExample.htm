@@ -1,0 +1,17 @@
+<html>
+<title>ControllerAPP</title>
+<head>
+<script src="angular.min.js"></script>
+</head>
+<body ng-app="InitApp" ng-init="cost=1500;dis=10;qty=1">
+Product cost is:<p>{{cost}}</p><br><br>
+Please Enter Quantity:<p><input type="number" ng-model="qty"></p><br><br>
+Total Price is:<p>{{cost*qty}}</p><br><br>
+Discount Percentage:{{dis}}<br><br>
+Your Discount Amount is:<p>{{(cost*qty)*(dis/100)}}</p><br><br>
+Yout outstanding Amount is:<p>{{((cost*qty))-((cost*qty)*(dis/100))}}</p>
+</body>
+</html>
+<script>
+var app=angular.module("InitApp",[]);
+</script>

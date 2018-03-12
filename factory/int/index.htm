@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script src="angular.min.js"></script>
+	<script>
+		var app=angular.module("my",[]);
+		app.controller("demo",function($scope,demofac){
+          $scope.x=[{fname:"sai",lname:"ram"},{fname:"om",lname:"jai"},{fname:"hari",lname:"om"}];
+          $scope.join=function(fname,lname){
+          	$scope.res=demofac.add((fname),(lname));
+          }
+		});
+		app.factory("demofac",function(){
+          var obj={};
+          obj.add=function(x,y){
+          	var z=x+y;
+          	return z;
+          }
+          return obj;
+		})
+
+
+	</script>
+</head>
+<body ng-app="my" ng-controller="demo">
+	<table border="2">
+		<tr>
+			<th>F_Name</th>
+			<th>L_Name</th>
+			<th>Click</th>
+		</tr>
+		<tr ng-repeat="item in x">
+			<td>{{item.fname}}</td>
+			<td>{{item.lname}}</td>
+			<td>
+				<input type="submit" ng-click="join(item.fname,item.lname)" value="Add-☻">
+			</td>
+		</tr>
+
+	</table>
+	<h2>Your full name:- <b>{{res}}</b></h2>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<html>
+<head>
+<script src="angular.min.js"></script>
+</head>
+<body ng-controller="MainController" ng-app="DirApp">
+{{"Custom Directives Example"}}
+<my-div></my-div>
+<my-second-directive></my-second-directive>
+<myname first="jalendhar" last="reddy"></myname>
+<h2 name first="Naresh" last="IT"></h2>
+<p class="cname" first="Tej" last="Aswi"></p>
+<btn val="20" action="click()"></btn>
+<btn val="40"></btn>
+<dad></dad>
+</body>
+</html>
+<script>
+var app=angular.module("DirApp",[]);
+app.controller("MainController",function($scope){
+$scope.person="sarath";
+$scope.click=function(){
+alert("Button clicked");
+}
+});
+app.directive("myDiv",function(){
+var d={};
+d.restrict='E',
+d.transclude=true;
+d.template='<h2 ng-transclude></h2>';
+return d;
+});
+
+app.directive("mySecondDirective",function(){
+return{
+	restrict:'E',
+	template:'My Second Directive Details'
+}
+});
+
+app.directive("myname",function(){
+return{
+restrict:'E',
+scope:{},
+link:function($scope,e,a){
+	$scope.fullName=a.first+""+a.last;
+},
+template:'<h2>{{fullName}}</h2>'
+}
+});
+
+app.directive("name",function(){
+return{
+restrict:'A',
+scope:{},
+link:function($scope,e,a){
+$scope.fullName=a.first+","+a.last;
+},
+template:'{{fullName}}'
+}
+});
+app.directive("cname",function(){
+return{
+restrict:'C',
+scope:{},
+link:function($scope,e,a){
+$scope.fullName=a.first+"-"+a.last;
+},
+template:'{{fullName}}'
+}
+});
+
+app.directive("btn",function(){
+return{
+restrict:'E',
+scope:{'val':'@',action:'&'},
+template:'<button ng-click="action()">{{val}}</button>'
+}
+});
+app.directive("dad",function(){
+return{
+restrict:'EA',
+template:'<div>{{greeting}}{{val}}</div>',
+link:{
+pre:function($scope,e,a){
+$scope.name="paul";
+$scope.greeting="Hey I am";
+}
+}
+}
+});
+</script>
+

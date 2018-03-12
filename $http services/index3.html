@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>	</title>
+	<script src="angular.min.js"></script>
+	<script>
+		var obj=angular.module("myApp",[]);
+		obj.controller("democtrl",function($scope,$http){
+			$http.get("get.html").then(function(response){
+				$scope.my=response.data;
+			})
+		});
+	</script>
+</head>
+<body ng-app="myApp">
+	<div ng-controller="democtrl">
+		<h2>{{my}}</h2>
+	</div>
+</body>
+</html>

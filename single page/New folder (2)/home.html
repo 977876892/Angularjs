@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	
+</head>
+<body>
+	<input type="text" ng-model="item.name" placeholder="name"> <br>
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Class</th>
+			<th>Subject</th>
+		</tr>
+		<tr ng-repeat="item in detail | filter:item.name">
+			<td>{{item.name}}</td>
+			<td>{{item.class}}</td>
+			<td>{{item.sub}}</td>
+		</tr>
+	</table>
+</body>
+</html>

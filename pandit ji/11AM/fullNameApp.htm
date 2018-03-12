@@ -1,0 +1,25 @@
+<html>
+<title>FullName App</title>
+<head>
+<script src="angular.min.js"></script>
+</head>
+<body ng-app="fullApp">
+<div ng-controller="FullNameController">
+Please Enter FirstName:<p><input ng-model="jsonObj.fname"/></p>
+Please Enter LastName:<p><input ng-model="jsonObj.lname"/></p>
+FullName:<p>{{jsonObj.fullname()}}</p>
+</div>
+</body>
+</html>
+<script>
+var app=angular.module("fullApp",[]);
+app.controller("FullNameController",function($scope){
+$scope.jsonObj={"fname":"",
+"lname":"",
+fullname:function(){
+var data=$scope.jsonObj;
+return data.fname+" "+data.lname;
+}
+}
+});
+</script>

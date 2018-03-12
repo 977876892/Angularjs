@@ -1,0 +1,39 @@
+var obj=angular.module("myapp",['ngRoute']);
+obj.controller("democtrl",function($scope){
+	$scope.item=["sai","ram","jai","kk","hello","hii"];
+	$scope.items=
+	[
+       {name:"sai",sub:"mil",salary:"20,000"},
+       {name:"jai",sub:"mil",salary:"50,000"},
+       {name:"om",sub:"his",salary:"20,500"},
+       {name:"sai",sub:"mil",salary:"28,000"},
+       {name:"sai",sub:"kk",salary:"30,000"},
+       {name:"om",sub:"oo",salary:"98,000"},
+       {name:"sai",sub:"ll",salary:"22,000"},
+       {name:"jai",sub:"mil",salary:"80,000"}
+	];
+	$scope.ser={name:"",sub:"",salary:""};
+});
+obj.config(function($routeProvider){
+	$routeProvider
+	.when("/home",{
+		templateUrl:"link.html",
+		controller:"linkctrl"
+	}),
+	.when("/about",{
+		templateUrl:"cust.html",
+		controller:"custctrl"
+	})
+});
+obj.controller("linkctrl",function($scope){
+	$scope.img=["1.jpg","2.jpg","3.jpg"];
+});
+obj.directive("serdir",function(){
+	return{
+		restrict:"EA";
+        templateUrl:"cust.html;"
+	};
+});
+obj.controller("cusctrl",function($scope){
+	$scope.name=["oo","pp","jj","js","jsh","hd"];
+});

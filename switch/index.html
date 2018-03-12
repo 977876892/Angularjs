@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+   <script>
+   	 var obj=angular.module("myApp",[]);
+   	 obj.controller("DemoController",
+   	 	function($scope){
+           $scope.mode="list";
+           $scope.product=
+           [
+               {pname:"n60",brand:"nokia",price:30000,pic:'1.jpg'},
+               {pname:"s320",brand:"samsung",price:25000,pic:'2.jpg'},
+               {pname:"g60",brand:"micro",price:2000,pic:'3.jpg'}
+           ];
+   	 });
+   </script>
+   <style type="text/css">
+   	.c1{
+	width:200px;
+   		background-color: red;
+   	}
+   	.c2{
+   		background-color: green;
+   	}
+   	.c3{
+   		border: 1px solid black;
+   		margin: 5px;
+   		padding: 5px;
+   	}
+   </style>
+</head>
+<body ng-app="myApp">
+	<div ng-controller="DemoController">
+		<img src="1.jpg" ng-click="mode='list'" alt="">
+		<img src="2.jpg" ng-click="mode='details'" alt="">
+		<img src="3.jpg" ng-click="mode='largeicon'" alt="">
+     
+     <div ng-switch="mode">
+     	<div ng-switch-when="list">
+     		<ol>
+     			<li ng-repeat="item in product">
+     				{{item.pname}}
+     				({{item.price | currency}})
+     			</li>
+     		</ol>
+     	</div>
+
+     	<div ng-switch-when="details">
+     		<table>
+     			<tr ng-repeat="item in product" ng-class-odd="{{c1.true}}" ng-class-even="{{c2.true}}">
+     				<td>{{item.pname}}</td>
+     				<td>{{item.brand}}</td>
+     				<td>{{item.price}}</td>
+     			</tr>
+     		</table>
+     	</div>
+     	<div ng-switch-when="largeicon">
+     		<img ng-repeat="item in product" src="{{item.pic}}" ng-class="{{c3}}" alt="">
+     	</div>
+     </div>
+
+
+
+
+	</div><!--ngcontroller-->
+</body>
+</html>

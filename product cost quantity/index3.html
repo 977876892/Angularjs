@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script src="angular.min.js"></script>
+	<script src="angular-route.js"></script>
+	<script src="app.js"></script>
+	<script>
+		var obj=angular.module("myApp",[]);
+		obj.controller("democtrl",function($scope){
+			$scope.all="img1";
+            $scope.img1=[
+              {name:"sai",roll:20,pic:"list.png"},
+              {name:"om",roll:40,pic:"list1.png"},
+              {name:"jai",roll:25,pic:"list.png"}
+            ];
+            
+            $scope.img2=
+            [
+               {name:"sai",sub:"html"},{name:"sri",sub:"php"},{name:"om",sub:"java"}
+            ];
+            $scope.search={name:"",sub:""};
+		});
+		
+		
+	</script>
+</head>
+<body ng-app="myApp">
+<div ng-controller="democtrl">
+	<img src="img1.jpg" alt="" ng-click="all='img1'">
+	<img src="img2.jpg" alt="" ng-click="all='img2'">
+	<img src="img3.jpg" alt="" ng-click="all='img3'">
+  
+    <div ng-switch="all">
+  	     <div ng-switch-when="img1">
+  	     	<table border="2">
+  	     		<tr>
+  	     			<th>Name</th>
+  	     			<th>Roll</th>
+  	     			<th>Photos</th>
+  	     		</tr>
+  	     		<tr ng-repeat="item in img1">
+  	     			<td>{{item.name}}</td>
+  	     			<td>{{item.roll}}</td>
+  	     			<td><img src="{{item.pic}}" alt=""></td>
+  	     		</tr>
+  	     	</table>
+  	     </div>
+
+  	     <div ng-switch-when="img2">
+  	     	<table border="2">
+  	     		<tr>
+  	     		    <td>Search</td>
+  	     			<td><input type="text" ng-model="search.name"></td>
+  	     		</tr>
+  	     		<tr ng-repeat="item in img2 | filter:search">
+  	     			<td>{{item.name}}</td>
+  	     			<td>{{item.sub}}</td>
+  	     		</tr>
+  	     	</table>
+  	     </div>
+
+  	     <div ng-switch-when="img3">
+  	     	<table>
+  	     		<tr>
+  	     			<th><a href="#home">Home</a></th>
+  	     			<th><a href="#about">About</a></th>
+  	     			<th><a href="#services">Services</a></th>
+  	     		</tr>
+  	     	</table>
+  	     </div>
+
+    </div> 
+</div>
+</body>
+</html>

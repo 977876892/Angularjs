@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+    <script src="angular.min.js"></script>
+    <script>
+        /*1st module*/
+    	var obj=angular.module("myApp1",[]);
+    	obj.controller("DemoController",
+    		function($scope){
+               $scope.name="sai";
+               $scope.age=20;
+    	});
+    	/*2nd module*/
+    	var obj=angular.module("myApp2",["myApp1"]);
+    	obj.controller("EmpController",
+    		function($scope){
+               $scope.sala=20000;
+               $scope.id=25;
+    	});
+      /*3rd*/
+      var obj=angular.module("myApp3",["myApp1","myApp2"]);
+    	obj.controller("CiController",
+    		function($scope){
+               $scope.city="bam";
+               $scope.st="odisha";
+    	});
+    </script>
+</head>
+<body ng-app="myApp3">
+	<div ng-controller="DemoController">
+		{{name}}
+		{{age}}
+		
+	</div>
+<div ng-controller="EmpController">
+		
+		{{sala}}
+		{{id}}
+	</div>
+<div ng-controller="CiController">
+		
+		{{city}}
+		{{st}}
+	</div>
+</body>
+</html>

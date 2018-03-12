@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+    <script src="angular.min.js"></script>
+    <script>
+    	var obj=angular.module("myApp",[]);
+    	obj.controller("Democtrl",
+    		function($scope){
+              $scope.num=[10,20,30,40,50,60,70,80,90];
+              $scope.msg="sairam";
+              $scope.x= "";
+              $scope.y="";
+    	});
+    	obj.filter("Demofilter",
+    		function(){
+              var fn=function(input){
+              	var output="";
+              	output=input.toUpperCase();
+              	return output;
+              };
+              return fn;
+    	});
+    	obj.filter("between",function(){
+    		var fn=function(input,min,max){
+    			var output=[];
+    			for(i=0;i<input.length;i++){
+    				if(input[i]>=min && input[i]<max){
+    					output.push(input[i]);
+    				}
+    				return output;
+    			}
+    		};
+    		return fn;
+    	});
+    </script>
+</head>
+<body ng-app="myApp">
+	<div ng-controller="Democtrl">
+		<p>
+			{{msg | Demofilter}}
+		</p>
+		min value:-
+		<select ng-model="x">
+			<option>0</option>
+			<option>10</option>
+			<option>21</option>
+			<option>35</option>
+			<option>40</option>
+			<option>58</option>
+		</select>
+		max value:-
+		<select ng-model="y">
+			<option>80</option>
+			<option>70</option>
+			<option>89</option>
+			<option>100</option>
+			<option>90</option>
+		</select>
+		<ol>
+			<li ng-repeat="item in num | between:x:y">{{item}}</li>
+		</ol>
+	</div>
+</body>
+</html>

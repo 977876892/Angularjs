@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<script src="angular.min.js"></script>
+	<script>
+		var app=angular.module("my",[]);
+		app.controller("demo",function($scope,$http){
+			$http({method:"get",url:"http://api.tvmaze.com/schedule?country=US&date=2014-12-01"})
+			.then(function mySuccess(response){
+				$scope.mydata=response.data;
+			},
+             function myError(response){
+             	$scope.mydata=response.statusText;
+             }
+			);
+		})
+	</script>
+</head>
+<body ng-app="my" ng-controller="demo">
+	<select >
+		<option ng-repeat="item in mydata">{{item.name}}</option>
+	</select>
+</body>
+</html>

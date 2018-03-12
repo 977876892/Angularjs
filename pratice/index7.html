@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+    <script src="angular.min.js"></script>
+    <script>
+    	var obj=angular.module("myApp",[]);
+      obj.controller("Democtrl",
+        function($scope){
+          $scope.mode="one";
+         $scope.one="one";
+         $scope.two="two";
+         $scope.three="three";
+      });
+    </script>
+</head>
+<body ng-app="myApp">
+	<div ng-controller="Democtrl">
+    <input type="button" value="1" ng-click="mode='one'">
+    <input type="button" value="2" ng-click="mode='two'">
+    <input type="button" value="3" ng-click="mode='three'">
+    <div ng-switch="mode">
+      <div ng-switch-when="one">
+        <span>{{one}}</span>
+      </div>
+
+      <div ng-switch-when="two">
+        <span>{{two}}</span>
+      </div>
+
+      <div ng-switch-when="three">
+        <span>{{three}}</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

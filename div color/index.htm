@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+	<script>
+		var myApp = angular.module('myApp',[]);
+    myApp.controller("MyCtrl",function($scope){
+    $scope.realName=[
+    {"id":1,"name":"A"},{"id":2,"name":"B"},{"id":3,"name":"c"},{"id":4,"name":"D"},{"id":5,"name":"E"},{"id":6,"name":"F"}]; 
+
+		$scope.selectItem = function (item) {
+			$scope.items=item;
+		    if ($scope.selectedObject == item)
+		        $scope.selectedObject = {}; 
+		    else
+		        $scope.selectedObject = item;
+		};
+    });
+ 
+	</script>
+	<style>
+	
+.yellow{
+     background-color:yellow;
+}
+	</style>
+</head>
+<body ng-app="myApp">
+	<div ng-controller="MyCtrl">
+   
+     <div style="border:2px solid black;margin:2px;cursor:pointer"
+         ng-init="item.isyellow = false" 
+         ng-repeat="item in realName" 
+         ng-class="{yellow : item.isyellow}"  
+         ng-click="item.isyellow =!item.isyellow">
+       {{item.id}}
+       {{item.name}}
+   </div> 
+   <!--<div style="border:2px solid black;margin:2px;cursor:pointer" ng-repeat="item in realName" 
+     ng-class="{yellow : item == selectedObject}" 
+     ng-click="selectItem(item)">
+    {{item.id}}
+    {{item.name}}
+    </div>-->
+    <h1>{{items}}</h1>
+</div>
+</body>
+</html>

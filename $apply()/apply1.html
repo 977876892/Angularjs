@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<script src="angular.min.js"></script>
+	<script>
+		var app=angular.module("my",[]);
+		app.controller("demo",function($scope,$rootScope){
+			$scope.msg="hiiiiiiiiiii scope";
+			$rootScope.rootmsg="hiiiiiiiiiii rootScope";
+           setTimeout(function(){
+           	$scope.msg="hello scope";
+			$rootScope.rootmsg="hello rootScope";
+			$scope.$digest();
+           },2000);
+		});
+	</script>
+</head>
+<body ng-app="my">
+<span ng-controller="demo">
+	{{msg}}
+</span>
+<br>
+	{{rootmsg}}
+</body>
+</html>

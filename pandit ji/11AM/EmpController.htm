@@ -1,0 +1,38 @@
+<html>
+<title>Model Data </title>
+<head>
+<script src="angular.min.js"></script>
+</head>
+<body ng-app="ModelApp" ng-controller="ModelController">
+<table border="1">
+<tr>
+<th>EmpID</th>
+<th>EmpName</th>
+<th>EmpMail</th>
+<th>EmpDept</th>
+<th>EmpSal</th>
+</tr>
+<tr ng-repeat=" emp in empData|orderBy:'empid'">
+<td>{{emp.empid }}</td>
+<td>{{emp.empname | uppercase}}</td>
+<td>{{emp.email}}</td>
+<td>{{emp.empdept | lowercase}}</td>
+<td>{{emp.empsal |currency}}</td>
+
+</tr>
+</table>
+
+</body>
+</html>
+<script>
+var app=angular.module("ModelApp",[]);
+app.controller("ModelController",function($scope){
+$scope.empData=[
+{empid:102,"empname":"Scott","email":"scott@nit.com","empdept":"IT","empsal":"1000"},
+{empid:101,"empname":"jhon","email":"jhon@nit.com","empdept":"ACC","empsal":"1200"},
+{empid:105,"empname":"smith","email":"smith@nit.com","empdept":"MKT","empsal":"1600"},
+{empid:106,"empname":"robert","email":"robert@nit.com","empdept":"HR","empsal":"1100"},
+{empid:104,"empname":"alen","email":"alen@nit.com","empdept":"FIN","empsal":"1300"}
+];
+});
+</script>

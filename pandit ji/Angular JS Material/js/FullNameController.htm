@@ -1,0 +1,28 @@
+<html>
+
+<title>Controller App</title>
+<head>
+
+ <script src="angular.min.js"></script>
+ </head>
+ {{"Contrller Full Name App"}}
+ <body ng-app="myApp">
+ <div ng-controller="FullNameController">
+ Enter First Name:<p><input ng-model="student.firstname"/></p>
+ Enter Second Name:<p><input ng-model="student.lastname"/></p>
+ Your Full Name is:<p>{{student.fullName()}}</p>
+ </div>
+ </body>
+ </html>
+ <script>
+ var app=angular.module("myApp",[]);
+ app.controller("FullNameController",function($scope){
+ $scope.student={"firstname":"Sachin","lastname":"Tendulkar"
+ ,fullName:function(){
+ var stdObj;
+ stdObj=$scope.student;
+ return stdObj.firstname+""+stdObj.lastname;
+ }
+ }
+ });
+ </script>

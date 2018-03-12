@@ -1,0 +1,6 @@
+<div ng-controller="onectrl">
+<button ng-click="a=!a">click</button>
+  <ul>
+     <li ng-repeat="x in x | orderBy:x:a">{{x}}</li>
+  </ul>
+</div>

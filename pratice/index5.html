@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+    <script src="angular.min.js"></script>
+    <script>
+    	var obj=angular.module("myApp",[]);
+    	obj.controller("DemoCtrl",
+    		function($scope){
+               $scope.data=
+               [
+                  {name:"sai",course:"java",time:"5.30pM"},
+                  {name:"ram",course:".net",time:"7.30AM"},
+                  {name:"hari",course:"java",time:"6.30pM"},
+                  {name:"om",course:"html",time:"7.30AM"},
+                  {name:"jai",course:"java",time:"7.30AM"},
+                  {name:"sri",course:"php",time:"7.30AM"},
+                  {name:"biki",course:"java",time:"10.30AM"},
+                  {name:"naresh",course:"html",time:"9.00AM"},
+                  {name:"satya",course:"java",time:"8.30pM"},
+                  {name:"hari",course:"java",time:"8.00AM"},
+                  {name:"jagdis",course:"php",time:"7.00AM"},
+                  {name:"manoj",course:"php",time:"10.30pM"}
+               ];
+               $scope.empty={name:"",course:"",time:""}
+    	});
+    </script>
+</head>
+<body ng-app="myApp">
+	<div ng-controller="DemoCtrl">
+		<table border="1">
+			<tr>
+				<th>NAME</th>
+				<th>COURSE</th>
+				<th>TIME</th>
+			</tr>
+			<tr>
+				<td><input type="text" placeholder="NAME" ng-model="empty.name"></td>
+				<td><input type="text" placeholder="COURSE" ng-model="empty.course"></td>
+				<td><input type="text" placeholder="TIME" ng-model="empty.time"></td>
+			</tr>
+			<tr ng-repeat="item in data | filter:empty">
+				<td>{{item.name}}</td>
+				<td>{{item.course}}</td>
+				<td>{{item.time}}</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

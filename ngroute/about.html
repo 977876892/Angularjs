@@ -1,0 +1,14 @@
+<div ng-controller="AboutCtrl">
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Roll no</th>
+			<th>Course</th>
+		</tr>
+		<tr ng-repeat="item in detail">
+			<td>{{item.name}}</td>
+			<td>{{item.roll}}</td>
+			<td>{{item.course}}</td>
+		</tr>
+	</table>
+</div>

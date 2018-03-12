@@ -1,0 +1,20 @@
+internationalization:-
+ Internationalization is a way to show locale specific information on a  website. For example, display content of a website in English language in  United States and in Danish in France.
+
+provider :-
+  provider is used by AngularJS internally to create services, factory etc.
+
+On which types of component can we create a custom directive?
+ Element directives,Attribute ,css.
+
+What are the differences between service and factory methods?
+factory:-1.factory method is used to define a factory.
+         2. factory method, we first define a factory and then assign method to it.
+service:-1.service method is used to create a service.
+         2. service method, we define a service and then assign method to it.
+
+Services:-
+ Services are JavaScript functions and are responsible to do specific tasks  only.Each service is responsible for a specific task for example, $https: is used to make ajax call to get the server data.
+
+How to validate data in AngularJS?
+ AngularJS form filling and validation. We can use $dirty and $invalid,$error.

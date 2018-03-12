@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script>
+    	var obj=angular.module("myApp",[]);
+		
+		obj.controller("SubController",
+		   function($scope)
+		   {
+		      $scope.detail=
+			  {
+			      name:"sai",
+				  num:9862,
+				  roll:20,
+				  mark:[20,30,60,40]
+			  };
+		   }
+		);
+    </script>
+</head>
+<body ng-app="myApp">
+	<div ng-controller="SubController">
+	     <table border="3">
+		      <tr>
+			        <td>name</td>
+			        <td>{{detail.name}}</td>
+			  </tr>
+			  <tr>
+			        <td>number</td>
+			        <td>{{detail.num}}</td>
+			  </tr>
+			  <tr>
+			        <td>rollno</td>
+			        <td>{{detail.roll}}</td>
+			  </tr>
+			  <tr>
+			        <td>marks</td>
+			        <td>
+					     <ul>
+						      <li ng-repeat="item in detail.mark">
+							       {{item}}
+							  </li>
+						 </ul>
+					</td>
+			  </tr>
+		 </table>
+	</div>
+</body>
+</html>

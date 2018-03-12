@@ -1,0 +1,27 @@
+<html ng-app="app" xmlns="http://www.w3.org/1999/xhtml">  
+<head runat="server">  
+    <title></title>  
+    <script src="angular.min.js"></script>  
+    <script>  
+        var app=angular.module('app', []);
+        app.controller('x', function ($scope, $rootScope) {  
+            $rootScope.showAlert = "Hello Everyone";  
+        });  
+   
+        
+        app.controller('x2', function ($scope, $rootScope) {  
+            $scope.val = $rootScope.showAlert;  
+            alert($scope.val);  
+        });  
+    </script>  
+</head>  
+<body>  
+    <form id="form1" runat="server">  
+        <div ng-app="app">  
+      
+    <div ng-controller="x"></div>  
+      <div ng-controller="x2">{{val}}</div>  
+    </div>  
+    </form>  
+</body>  
+</html>  

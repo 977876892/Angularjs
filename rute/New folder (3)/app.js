@@ -1,0 +1,32 @@
+var app=angular.module("myapp",['ngRoute']);
+app.config(function($routeProvider){
+	$routeProvider
+	.when("/home",{
+		templateUrl:"one.html",
+		controller:"onectrl"
+	})
+	.when("/abo",{
+		templateUrl:"two.html",
+		controller:"twoctrl"
+	})
+	.when("/ser",{
+		templateUrl:"three.html",
+		controller:"threectrl"
+	})
+
+});
+app.controller("onectrl",function($scope){
+	$scope.x=["one","two","three","four","five"];
+});
+app.controller("twoctrl",function($scope){
+	$scope.y=[
+     {name:"sai",class:"10th"},{name:"ram",class:"+2"},{name:"om",class:"bcom"}
+	];
+	$scope.ser={name:"",class:""};
+});
+app.controller("threectrl",function($scope){
+	$scope.pic=["1.jpg","2.jpg","3.jpg"];
+	$scope.x=function(){
+		$scope.y=!$scope.y;
+	}
+});

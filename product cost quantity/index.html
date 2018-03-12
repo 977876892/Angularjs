@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script src="angular.min.js"></script>
+	<script>
+		var obj=angular.module("myApp",[]);
+		obj.controller("democtrl",
+			function($scope){
+               $scope.cost='';
+               $scope.dis=10;
+               $scope.qut='';
+		});
+	</script>
+</head>
+<body ng-app="myApp">
+	<div ng-controller="democtrl">
+		product cost:-
+		<input type="text" ng-model="cost"><br/>
+
+		product quntity:-
+		<input type="text" ng-model="qut"><br/>
+
+		total price:-{{cost*qut}}<br/>
+
+        discount %:-<input type="text" ng-model="(cost*qut)*(dis/100)"><br/>
+
+        outstanding amount:-
+        <input type="text" ng-model="((cost*qut))-((cost*qut)*(dis/100))">
+	</div>
+</body>
+</html>

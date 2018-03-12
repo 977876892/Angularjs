@@ -1,0 +1,16 @@
+<html>
+<title>Discount App</title>
+<head>
+ <script src="angular.min.js"></script>
+ </head>
+ <body ng-app ng-init="discount=15;price=1500">
+ <table>
+<tr> Enter the ProductName:<input ng-model="pname"></input></tr><br><br>
+<tr>Enter the Quantity:<input type="number" ng-model="qty"></input></tr><br><br>
+<tr> Your discount price is <span ng-bind="discount"></span>%:{{price*discount/100}}</tr><br><br>
+<tr> Yout Total Product Price:{{price*qty}}</tr><br><br>
+<tr> Your Total outstanding Amount is:{{(price*qty)-((price*qty)*(discount/100))}}</tr><br><br>
+ </table>
+ </body>
+ </html>
+ 

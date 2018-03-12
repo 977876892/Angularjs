@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script>
+    	var hello=angular.module("myApp",[]);
+
+    	hello.controller("SubController",
+           function($scope)
+    	{
+            $scope.s1={sai:1025,sname:"sai",sala:20000};
+
+    	});
+    </script>
+</head>
+<body ng-app="myApp">
+	<div ng-controller="SubController">
+		<p>
+			number:{{s1.sai}}<br/>
+			name:{{s1.sname}}<br/>
+			salary:{{s1.sala}}<br/>
+			
+		</p>
+	</div>
+</body>
+</html>

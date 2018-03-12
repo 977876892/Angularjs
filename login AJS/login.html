@@ -1,0 +1,26 @@
+<div ng-controller="demo">
+<form action="/" id="mylogin">
+	<table border="2">
+		<tr>
+			<td>Username</td>
+			<td>
+				<input type="text" id="name" placeholder="name" ng-model="name">
+			</td>
+		</tr>
+		<tr>
+			<td>Password</td>
+			<td>
+				<input type="Password" id="password" placeholder="Password" ng-model="password">
+			</td>
+		</tr>
+		<tr>
+			<td>
+			   <input type="reset" value="Reset">
+			</td>
+			<td>
+				<input type="submit" value="Submit" ng-click="sub()">
+			</td>
+		</tr>
+	</table>
+</form>
+</div>

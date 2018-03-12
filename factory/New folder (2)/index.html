@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script src="angular.min.js"></script>
+	<script src="app.js"></script>
+</head>
+<body ng-app="my" ng-controller="demo">
+	<table border="">
+		<tr>
+			<td>First Number</td>
+			<td>
+				<input type="number" ng-model="fnum">
+			</td>
+		</tr>
+		<tr>
+			<td>Second Number</td>
+			<td>
+				<input type="number" ng-model="snum">
+			</td>
+		</tr>
+		<tr>
+			<td>Select</td>
+			<td>
+				<input type="submit" ng-click="sum()" value="+">
+				<input type="submit" ng-click="min()" value="-">
+			</td>
+		</tr>
+		<tr>
+			<td>Result =</td>
+			<td>
+				{{result}}
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

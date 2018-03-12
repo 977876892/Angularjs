@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script src="angular.min.js"></script>
+	<script>
+		var app=angular.module("my",[]);
+		app.controller("demo",function($scope){
+			$scope.item=[{name:"sai",class:"10th"},{name:"raam",class:"12th"},{name:"hai",class:"11th"}];
+			 
+		});
+	</script>
+</head>
+<body ng-app="my">
+	<div ng-controller="demo">
+
+	<button ng-click="x='item';a=!a">+ / -</button>
+		<table border="2">
+			<tr ng-repeat="x in item | orderBy:x:!a">
+				<td>{{x.name}}</td>
+				<td>{{x.class}}</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+<form name="frm">
+	<table border="2">
+		<tr>
+		  <td>Email</td>
+		  <td><input type="email" name="email" ng-model="email" placeholder="Email" required></td>	
+           <span ng-show="frm.email.$dirty && frm.email.$invalid">
+           	<span ng-show="frm.email.$error.required">Enter ur email id</span>
+           	<span ng-show="frm.email.$error.email">wrong Email ID</span>
+           </span>
+		</tr>
+		<tr>
+			<td>Password</td>
+			<td><input type="password" name="pass" placeholder="password" ng-model="pass" required></td>
+			<span ng-show="frm.pass.$dirty && frm.pass.$invalid">Enter ur password</span>
+		</tr>
+		<tr>
+			<td>Phone</td>
+			<td><input type="number" name="phone" ng-model="phone" ng-minlength="3"  ng-maxlength="10" placeholder="Number" required></td>
+				<span ng-show="frm.phone.$error.required && frm.phone.$dirty">fill</span>
+				<span ng-show="frm.phone.$error.minlength && frm.phone.$dirty">Wrong number</span>
+				<span ng-show="frm.phone.$error.maxlength && frm.phone.$dirty">Wrong number</span>
+		</tr>
+        <tr><input type="submit" name="submit" ng-disabled="frm.$invalid" value="submit"></tr>
+	</table>
+</form>
+</body>
+</html>

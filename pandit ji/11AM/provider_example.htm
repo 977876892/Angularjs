@@ -1,0 +1,39 @@
+<html>
+<head>
+<script src="angular.min.js"></script>
+</head>
+<body ng-app="app">
+<div ng-controller="AppCtrl">
+<h1><span>{{title}}</span></h1>
+</div>
+</body>
+</html>
+<script>
+
+var app = angular.module("app",[]);
+
+app.provider("game", function () {
+  var type;
+  return {
+    setType: function (value) {
+      type = value;
+    },
+    $get: function () {
+	alert("in provider");
+      return {
+        title: type + "Craft"
+      };
+    }
+  };
+});
+
+app.config(function (gameProvider) {
+alert("In config");
+  gameProvider.setType("War");
+});
+
+app.controller("AppCtrl", function ($scope, game) {
+  alert("In Controller");
+  $scope.title = game.title;
+});
+</script>

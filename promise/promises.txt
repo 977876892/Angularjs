@@ -1,0 +1,20 @@
+
+ promise :-
+ --------------
+   A promise is a special type of Object  or asynchronous operation.A promise has three states, pending, resolved or rejected.promises because we are “promised” a         result at a future point in time.a promise will execute when use resolved.
+
+ How does promise work :- 
+ ----------------------------------------
+ The Promise constructor take a function that will be executed immediately and passes in two functions: resolve and reject. resolve must be called when the
+ Promise is resolved (passing a result), and reject when it is rejected (passing an error).
+
+ Deferred :-
+ ---------------
+ Deferred returns promise object.When Deferred completes, You call methods resolve( ), reject( ) .
+ A new instance of defer is created by calling $q.defer(). It has mainly three methods.
+  .resolve(value) – This method is use to pass the result.
+  .reject(value) – This method is use to pass error.
+  .notify(value) – This method is used to notify the current state .
+
+
+

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+     <script src="angular.min.js"></script>
+     
+     <script>
+     	var obj=angular.module("myApp",[]);
+     	obj.controller("Democtrl",function($scope){
+            $scope.detail=
+            [
+              {name:"sai",number:25378665525,city:"bam"},
+              {name:"ram",number:8856633474,city:"hyd"},
+              {name:"om",number:555557121,city:"mum"},
+              {name:"jai",number:6526254555,city:"delhi"}
+            ];
+            $scope.submit=function(){
+            	$scope.detail.push($scope.newContact);
+            	$scope.newContact={}
+            }
+            $scope.delete=function(item){
+            	$scope.detail.splice($scope.detail.indexOf(item),1);
+            }
+            $scope.edit=function(item){
+            	$scope.newContact=angular.copy(item);
+            }
+           
+     	});
+     	
+     </script>
+     
+</head>
+<body ng-app="myApp">
+	<div ng-controller="Democtrl">
+	<form>
+		<table border="2">
+			<tr>
+				<td>Name</td>
+				<td><input type="text" ng-model="newContact.name"></td>
+			</tr>
+			<tr>
+				<td>Number</td>
+				<td><input type="number"  ng-model="newContact.number"></td>
+			</tr>
+			<tr>
+				<td>City</td>
+				<td><input type="text" ng-model="newContact.city"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit" value="Submit" ng-click="submit()"></td>
+			</tr>
+		</table>
+		</form>
+        
+		<form >search:-
+		<input type="text" name="search" ng-model="search.name">
+			<table border="2">
+				<tr>
+					<th>Name</th>
+					<th>City</th>
+					<th>Number</th>
+				</tr>
+				<tr ng-repeat="item in detail | filter:search">
+					<td>{{item.name}}</td>
+					<td>{{item.city}}</td>
+					<td>{{item.number}}</td>
+					<td><input class="btn btn-danger" type="delet" value="delet" ng-click="delete(item)"></td>
+				    <td><input class="btn btn-primary" type="edit" value="Edit" ng-click="edit(item)"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

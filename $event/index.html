@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script>
+		var app=angular.module("my",[]);
+		app.controller("demo",function($scope){
+             $scope.myfun=function(xyz){
+                  $scope.a=xyz.clientX;
+                  $scope.b=xyz.clientY;
+             }
+		});
+	</script>
+</head>
+<body ng-app="my" ng-controller="demo">
+	 <h1 ng-mousemove="myfun($event)">Mouse Over Me!</h1>
+	 <p>Coordinates: {{a + ', ' + b}}</p>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script src="angular.min.js"></script>
+	<script>
+		var app=angular.module("my",[]);
+        app.controller("demo",function($scope){
+        	$scope.items=
+        	[
+              {name:"sai",class:"10th"},
+              {name:"rai",class:"9th"},
+              {name:"jai",class:"8th"}
+        	];
+        	$scope.sub=function(){
+        		$scope.items.push($scope.new);
+        		$scope.new={};
+        	}
+        	$scope.del=function(item){
+        		$scope.items.splice($scope.items.indexOf(item),1);
+        	}
+        	$scope.edit=function(item){
+        		$scope.new=angular.copy(item);
+        	}
+        })
+	</script>
+</head>
+<body ng-app="my" ng-controller="demo">
+<input type="text" ng-model="new.name" placeholder="Add items">
+<input type="text" ng-model="new.class" placeholder="Add items">
+<button ng-click="sub()">Submit</button>
+	<table border="">
+		<tr ng-repeat="item in items">
+			<td>{{item.name}}</td>
+			<td>{{item.class}}</td>
+			<td>
+				<input type="submit" value="Delet" ng-click="del(item)">
+			</td>
+			<td>
+				<input type="submit" value="Edit" ng-click="edit(item)">
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

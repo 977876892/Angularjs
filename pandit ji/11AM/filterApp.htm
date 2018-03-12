@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>FilterApp</title>
+<script src="angular.min.js"></script>
+</head>
+<body ng-app="myapp">
+<div ng-controller="FilterController">
+<table border="1">
+<tr>
+<th>EmpId</th>
+<th>EmpName</th>
+</tr>
+<tr ng-repeat="e in data|orderBy:'name':'desc'">
+<td>{{e.empid}}</td>
+<td>{{e.name}}</td>
+</tr>
+</table>
+</div>
+
+</body>
+</html>
+<script>
+var app=angular.module("myapp",[]);
+app.controller("FilterController",function($scope){
+$scope.data=[{"name":"sumith","empid":"101"},
+{"name":"laxmi","empid":"103"},
+{"name":"chandhu","empid":"102"},
+{"name":"allu","empid":"104"},
+{"name":"aravind","empid":"105"},
+{"name":"sachin","empid":"101"}];
+});
+
+app.filter("substr",function(){
+return function(strVal,firstIndex,lastIndex){
+ return strVal.substring(firstIndex,lastIndex);
+}
+});
+</script>

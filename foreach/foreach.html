@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+
+<style>
+.foreach_demo {
+  background: #4C9B79;
+  height: auto;
+  width:300px;
+  border-radius: 10px;
+  padding:10px;
+  font-size:15px;
+  color:#fff;   
+}
+</style>
+</head>
+
+<body ng-app="foreachdemo">
+    <div class="foreach_demo" ng-controller="demoController">
+       <h3>A demo of forEach in AnjgularJS</h3>
+       <p><strong>Names in array:</strong></p>
+        <div ng-repeat="emp_name in employee_names">
+            {{emp_name.emp_name}}<!--remove this comment-->}
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    var app = angular.module("foreachdemo", []);
+    app.controller('demoController', ['$scope', function ($scope) {
+        $scope.employee_names = [];
+        console.log(employee_names);
+        var values = [{emp_name: 'Tina', salary: 5000},{emp_name: 'Mike', salary: 5000},{emp_name: 'Saleem', salary: 5000}];  
+        angular.forEach(values, function (value, key) {
+            $scope.employee_names.push(value.emp_name);
+        });  
+        
+    }]);
+    
+</script>
+</body>
+</html>
+

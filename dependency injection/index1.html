@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script src="angular.min.js"></script>
+	<script>
+		var app=angular.module("my",[]);
+		app.controller("demo",function($scope){
+           var x=function(first,last){
+           	   this.first=first;
+           	   this.last=last;
+           }
+           function y(x){
+           	$scope.x=x;
+           }
+           var item=new x('sai','ram');
+           y(item);
+
+		});
+	</script>
+</head>
+<body ng-app="my" ng-controller="demo">
+	{{x}}
+</body>
+</html>

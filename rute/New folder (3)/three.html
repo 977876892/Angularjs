@@ -1,0 +1,15 @@
+<div ng-controller="threectrl">
+  <a href="" ng-click="mode='one'">Gallery</a>
+  <a href="" ng-click="mode='two'">Salary</a>
+  <a href="" ng-click="mode='three'">Others</a>
+	<div ng-switch="mode">
+		<div ng-switch-when="one">
+			<img ng-repeat="item in pic" src="{{item}}" alt="">
+		</div>
+		<div ng-switch-when="two">
+			<button ng-click="x()">click</button>
+			<h2 ng-show="y">sairam</h2>
+		</div>
+		<div ng-switch-when="three"></div>
+	</div>
+</div>

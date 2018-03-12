@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script src="angular.min.js"></script>
+	<script>
+		var app=angular.module("myapp",[]);
+		app.controller("demo",function($scope){
+			
+			$scope.a=angular.isNumber("sairam");
+			$scope.b=angular.isString("sairam");
+			$scope.x=angular.uppercase("sairam");
+			$scope.y=angular.lowercase("sairam");
+		});
+	</script>
+</head>
+<body ng-app="myapp" ng-controller="demo">
+	isnumber:-{{a}}<br/>
+	isString:-{{b}}<br/>
+	uppercase:-{{x}}<br/>
+	lowercase:-{{y}}
+</body>
+</html>

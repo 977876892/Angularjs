@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>	</title>
+	<script src="angular.min.js"></script>
+	<script>	
+       var obj=angular.module("myApp",[]);
+       obj.directive("Demodir",function(){
+          var obj={};
+        obj.restrict="EA";
+        obj.replace=false;
+        obj.template="<p>well come</p>";
+        return obj;
+       });
+       obj.directive("Demodir1",function(){
+         var obj={};
+      obj.restrict="EA";
+      obj.replace=true;
+      obj.templateUrl="link.html";
+      return obj;
+       });
+       obj.controller("democtrl",function($scope){
+        $scope.stu=[{name:"sai",sub:"math"},{name:"ram",sub:"mil"},{name:"om",sub:"eng"},{name:"jai",sub:"math"}];
+       });
+	</script>
+	
+</head>
+<body ng-app="myApp">
+	<div ng-controller="democtrl">	
+        <Demodir1></Demodir1>
+        <div Demodir1></div>
+	</div>
+</body>
+</html>

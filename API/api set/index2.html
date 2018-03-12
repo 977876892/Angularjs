@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script src="angular.min.js"></script>
+    <script>
+    	var app=angular.module("my",[]);
+    	app.controller("demo",function($scope,$http){
+    		$http({method:"get",url:"http://api.tvmaze.com/schedule?country=US&date=2014-12-01"})
+    		.then(function mySuccess(res){
+    			$scope.x=res.data;
+    		},function myError(res){
+    			$scope.x=res.statusText;
+    		});
+    	})
+    </script>
+</head>
+<body  ng-app="my" ng-controller="demo">
+	<div ng-repeat="item in x">{{item.name}}</div>
+</body>
+</html>

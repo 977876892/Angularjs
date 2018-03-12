@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<script src="angular.min.js"></script>
+	<script>
+		var app=angular.module("my",[]);
+		app.controller("demo",function($scope){
+			$scope.res=[10,32,25,14,54,44,2,3,98,100,27,85,99,66,51,35,78,77,66,44,11];
+			$scope.x="";
+			$scope.y="";
+		});
+		app.filter("demofil",function(){
+			var s=function(innput){
+				var output="";
+				output=input.touppercase();
+				return output;
+			};
+			return s;
+		});
+		app.filter("demofil1",function(){
+			var s1=function(input,min,max)
+			{
+				var output=[];
+				for(i=0;i<=input.length;i++)
+					if(input[i]>=min && input[i]<max){
+						output.push(input[i]);
+					}
+					return output;
+			};
+			return s1;
+		})
+	</script>
+</head>
+<body ng-app="my" ng-controller="demo">
+	min value:-
+	<select ng-model="x">
+		<option>choose</option>
+		<option>1</option>
+		<option>25</option>
+		<option>36</option>
+		<option>98</option>
+		<option>78</option>
+		<option>88</option>
+		<option>33</option>
+		<option>15</option>
+		<option>17</option>
+		<option>8</option>
+		<option>10</option>
+		<option>45</option>
+		<option>68</option>
+	</select>
+	max value:-
+	<select ng-model="y">
+	<option>choose</option>
+		<option>65</option>
+		<option>20</option>
+		<option>99</option>
+		<option>9</option>
+		<option>70</option>
+		<option>60</option>
+		<option>30</option>
+		<option>100</option>
+		
+	</select><br>
+	result:-
+	 <ul>
+	 	<li ng-repeat="item in res |demofil1:x:y ">{{item}}</li>
+	 </ul>
+</body>
+</html>

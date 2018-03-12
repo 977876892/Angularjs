@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+    <script src="angular.min.js"></script>
+    <script>
+    	var obj=angular.module("myApp",[]);
+    	obj.controller("democtrl",function($scope){
+           $scope.search={name:"",roll:"",sub:"",fee:""};
+           $scope.details=
+           [
+              {name:"sai",roll:36,sub:"mil",fee:256265},
+              {name:"ram",roll:888,sub:"hindi",fee:20000},
+              {name:"jai",roll:22,sub:"hindi",fee:20000},
+              {name:"sai",roll:56,sub:"mil",fee:200},
+              {name:"om",roll:20,sub:"hindi",fee:56222},
+              {name:"sai",roll:55,sub:"mil",fee:8625},
+              {name:"jai",roll:32,sub:"mil",fee:20000},
+              {name:"ram",roll:255,sub:"hindi",fee:20000},
+              {name:"jai",roll:26,sub:"bsm",fee:2000000},
+              {name:"ram",roll:20,sub:"kk",fee:2015382},
+              {name:"om",roll:25,sub:"math",fee:8888},
+              {name:"ram",roll:256,sub:"jog",fee:256726},
+              {name:"jai",roll:30,sub:"eng",fee:9862475},
+              {name:"om",roll:20,sub:"hindi",fee:33333},
+
+           ];
+    	});
+    </script>
+    <style>
+    	
+    </style>
+</head>
+<body ng-app="myApp">
+	<div ng-controller="democtrl">
+		<input type="text" ng-model="search.name">
+    <select ng-model="search.sub">
+      <option value="">select</option>
+      <option >mil</option>
+      <option >hindi</option>
+      <option >mil</option>
+      <option >hindi</option>
+      <option >mil</option>
+    </select>
+     <br>
+         <table border="2" >
+         	<tr>
+         		<th>Name</th>
+         		<th>Roll no.</th>
+         		<th>subject</th>
+         		<th>Money</th>
+         	</tr>
+         	<tr ng-repeat="item in details | filter:search" >
+         		<td >{{item.name}}</td>
+         		<td >{{item.roll}}</td>
+         		<td >{{item.sub}}</td>
+         		<td >{{item.fee}}</td>
+         	</tr>
+         </table>
+	</div>
+</body>
+</html>

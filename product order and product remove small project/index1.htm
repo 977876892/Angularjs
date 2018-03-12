@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title></title>
+	<script src="angular.min.js"></script>
+	<script src="app1.js"></script>
+ </head>
+ <body ng-app="myapp" ng-controller="demo">
+    <table border="2">
+	   <tr>
+	       <td ng-repeat="x in items">
+		      {{x}}
+               <span ng-click="rem()"><a href="">*</a></span>			  
+		   </td>
+	   </tr>
+	   <tr>
+	       <td><input type="text" placeholder="order" ng-model="order"></td>
+	       <td><button ng-click="add()">Add</button></td>
+	   </tr>
+    </table>
+	<h2>{{error}}</h2>
+ </body>
+</html>

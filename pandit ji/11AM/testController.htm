@@ -1,0 +1,21 @@
+<html>
+ <head>
+  <title>Wel come to the Controller</title>
+  <script src="/angular.min.js"/>
+ </head>
+ 
+  <body ng-app="myApp">
+  {{"HAI HELLO"}}
+   <div ng-controller="HelloController">
+   <h1>Welcome To the {{helloTo.title}}</h1>
+   </div>
+  <script>
+	var app=angular.module('myApp',[]);
+	app.controller('HelloController',function($scope){
+	$scope.helloTo={};
+	$scope.helloTo.title="Naresh i Technologies";
+	});
+  
+  </script>
+  </body>
+  </html>

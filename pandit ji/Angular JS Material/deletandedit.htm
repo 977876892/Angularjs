@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link rel="stylesheet" href="bootstrap.css"/>
+ <script  src="js/angular.min.js"></script>
+ <script  src="js/crudapp.js"></script>
+</head>
+<body ng-app="crudApp">
+	<h1>{{"CRUD APP EXAMPLE"}}</h1>
+	<div class="container" ng-controller="ContactController">
+	<form class="well">
+	 <input  ng-model="newContact.name" placeholder="Type name"/>
+	 <input  ng-model="newContact.phone" placeholder="Type Phone"/>
+	 <input  ng-model="newContact.city" placeholder="Type city"/>
+	 <button class="btn btn-primary" ng-click="saveContact()">Save</button>	
+	</form>
+	<div class="well">
+	 search:<input ng-model="search.name"/>
+	 </div>
+	 <table  class="table table-stripped table-bordered">
+	  <tr>
+	   <th>Contact Name</th>
+	   <th>Phone  Number</th>
+	   <th>City Name</th>
+	   </tr>
+	   <tr ng-repeat="contact in contacts | filter:search">
+	    <td>{{contact.name |reverse}}</td>
+		<td>{{contact.phone}}</td>
+		<td>{{contact.city}}</td>
+		<td><button class="btn btn-danger" ng-click="deleteContact(contact)">Delete</button></td>
+		<td><button class="btn btn-success" ng-click="edit(contact)">Edit</button></td>
+	   </tr>
+	 </table>
+	</div>
+</body>
+</html>

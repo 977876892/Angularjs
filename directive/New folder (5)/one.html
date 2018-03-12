@@ -1,0 +1,7 @@
+<table border="2">
+   <tr ng-repeat="a in x | filter:y">
+       <td>{{a.name}}</td>
+       <td>{{a.class}}</td>
+   </tr>
+</table>
+<input type="text" ng-model="y.name">

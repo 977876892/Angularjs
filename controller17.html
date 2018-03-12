@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script>
+  	var obj=angular.module("myApp",[]);
+
+  	obj.controller("DemoController",
+  		function($scope){
+  			$scope.detai=
+			[
+			{name:"sai",roll:20,pic:"1.jpg"},
+			{name:"ram",roll:23,pic:"2.jpg"},
+  			{name:"jai",roll:33,pic:"3.jpg"}
+			];
+  		});
+  </script>
+</head>
+<body ng-app="myApp">
+	<div ng-controller="DemoController">
+		<table border="2">
+			<tr>
+				<th>name</th>
+				<th>roll</th>
+				<th>pic</th>
+			</tr>
+			<tr ng-repeat="item in detai">
+				<td>{{item.name}}</td>
+				<td>{{item.roll}}</td>
+				<td>
+					<img src="{{item.pic}}">
+				</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

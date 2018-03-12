@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+	<script>
+		var app=angular.module("myapp",[]);
+		app.controller("demo",function($scope){
+          $scope.detail=[{name:"sai",rate:2000},{name:"ram",rate:2800},{name:"jai",rate:5000},{name:"om",rate:20000},{name:"hari",rate:15000},{name:"kisan",rate:2050}];
+          $scope.cli=function(x){
+            x.active=!x.active;
+          }
+          $scope.total=function(){
+          	var total=0;
+          	angular.forEach($scope.detail,function(x){
+          		if(x.active){
+          			total+=x.rate;
+          		}
+          	});
+          	return total;
+          }
+		});
+	</script>
+</head>
+<body ng-app="myapp" ng-controller="demo">
+	<table border="2">
+		<tr ng-repeat="item in detail" ng-click="cli(item)" ng-class={active:item.active}>
+			<td>{{item.name}}</td>
+			<td>{{item.rate}}</td>
+		</tr>
+		<tr>
+			<td>Total</td>
+			<td>{{total() | currency}}</td>
+		</tr>
+	</table>
+</body>
+</html>

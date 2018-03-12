@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>	</title>
+	<script src="angular.min.js"></script>
+	<script>	
+       var obj=angular.module("myApp",[]);
+       obj.controller("Democtrl",function($scope){
+           
+           $scope.names=[{name:"sai",sub:"math",roll:20},{name:"ram",sub:"mil",roll:30}];
+           $scope.select=["sai","ram","mil","math",20,30];
+           $scope.search={name:"",sub:"",roll:""};
+       });
+	</script>
+	
+</head>
+<body ng-app="myApp">
+	<div ng-controller="Democtrl">	
+        <input type="text" ng-model="search.name"> 
+        <select ng-model="search.sub" ng-options="item for item in select"></select>
+        <br>
+        <table border="2">	
+            <tr>
+            	<th>Name</th>
+            	<th>Subject</th>
+            	<th>Roll</th>
+            </tr>
+            <tr ng-repeat="item in names | filter:search">
+            	<td>{{item.name}}</td>
+            	<td>{{item.sub}}</td>
+            	<td>{{item.roll}}</td>
+            </tr>
+        </table>	
+	</div>
+</body>
+</html>

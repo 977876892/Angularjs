@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script src="angular.min.js"></script>
+	<script>
+		var app=angular.module("my",[]);
+		app.controller("demo",function($scope,demofac){
+			$scope.fnum="";
+			$scope.snum="";
+			$scope.sum=function(){
+				var x=demofac.sum(parseInt($scope.fnum),parseInt($scope.snum));
+				$scope.res=x;
+			}
+		});
+		app.factory("demofac",function(){
+			var obj={};
+			obj.sum=function(x,y){
+                 var z=x+y;
+                 return z;
+			}
+			return obj;
+		});
+		
+	</script>
+
+</head>
+<body ng-app="my" ng-controller="demo">
+	<table border="2">
+		<tr>
+			<td>1st Num</td>
+			<td>
+				<input type="number" ng-model="fnum" >
+			</td>
+		</tr>
+		<tr>
+			<td>2nd num</td>
+			<td>
+				<input type="number" ng-model="snum" >
+			</td>
+		</tr>
+		<tr>
+		   <td></td>
+			<td>
+				<input type="button" ng-click="sum()" value="+">
+			</td>
+		</tr>
+	</table>
+	Result:-{{res}}
+</body>
+</html>

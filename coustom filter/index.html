@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script>
+    	var obj=angular.module("myApp",[]);
+
+    	obj.controller("DemoController",
+    		function($scope){
+    			$scope.ar=[10,30,40,80,70,54,66,88,36,78,55];
+    			$scope.x="0";
+    			$scope.y="100";
+    			$scope.mess="hello";
+    		});
+      
+    	obj.filter("DemoFilter",
+               function(){
+               	var s1=function(input)
+               	{
+               		var output="";
+               		output=input.touppercase();
+               		return output;
+               	};
+               	return s1;
+    		});
+
+    	obj.filter("BetFilter",
+    		function(){
+    			var s1=function(input,min,max)
+    			{
+    				var output=[];
+    				for(i=0;i<=input.length-1;i++)
+    					if(input[i] >=min && input[i]<max){
+    						output.push(input[i]);
+    					}
+    					return output;
+    			};
+    			return s1;
+    		});
+    </script>
+</head>
+<body ng-app="myApp">
+	<div ng-controller="DemoController">
+		<p>
+			{{mess | DemoFilter}}
+		</p>
+		min value:
+		<select ng-model="x">
+			<option>0</option>
+			<option>10</option>
+			<option>30</option>
+			<option>80</option>
+			<option>60</option>
+			<option>40</option>
+			<option>20</option>
+			<option>68</option>
+		</select>
+		max value:
+		<select ng-model="y">
+			<option>50</option>
+			<option>90</option>
+			<option>70</option>
+			<option>70</option>
+			<option>80</option>
+		</select>
+		<ol>
+			<li ng-repeat="item in ar | BetFilter:x:y">{{item}}</li>
+		</ol>
+	</div>
+</body>
+</html>

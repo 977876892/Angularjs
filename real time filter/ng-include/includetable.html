@@ -1,0 +1,15 @@
+<h2>table</h2>
+<table border="2">
+		<tr>
+			<th>Name</th>
+			<th>Date of birth</th>
+			<th>Gender</th>
+			<th>Salary</th>
+		</tr>
+		<tr ng-repeat="x in items | limitTo:rows">
+			<td>{{x.name | uppercase}}</td>
+			<td>{{x.date | date:"dd/MM/yyyy"}}</td>
+			<td>{{x.gender | lowercase}}</td>
+			<td>{{x.salary | currency:"Rs"}}</td>
+		</tr>
+	</table>

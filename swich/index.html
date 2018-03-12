@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+    <script src="angular.min.js"></script>
+    <script>
+    	 var obj=angular.module("myApp",[]);
+    	 obj.controller("DemoController",
+    	 	 function($scope){
+                $scope.mode="detail";//1st display purpose
+                $scope.product=
+                [
+                   {pname:"p55",brand:"nokia",prise:2000,pic:'1.jpg'},
+                   {pname:"pp60",brand:"samsung",prise:3500,pic:'2.jpg'},
+                   {pname:"u55",brand:"sony",prise:15500,pic:'3.jpg'}
+                ];
+    	 });
+    </script>
+</head>
+<body ng-app="myApp">
+	<div ng-controller="DemoController">
+		<img src="1.jpg" alt="" ng-click="mode='list'">
+        <img src="2.jpg" alt="" ng-click="mode='detail'">
+        <img src="3.jpg" alt="" ng-click="mode='detail1'">
+        <div ng-switch="mode">
+            <div ng-switch-when="list">
+                <ol>
+                    <li ng-repeat="item in product">
+                        {{item.pname}}
+                        {{item.prise | currency}}
+                    </li>
+                </ol>
+            </div>
+            <div ng-switch-when="detail">
+                <table>
+                    <tr ng-repeat="item in product">
+                        <td>{{item.brand}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div ng-switch-when="detail1">
+                 <img src="{{item.pic}}" alt="" ng-repeat="item in product">
+            </div>
+        </div>
+	</div>
+</body>
+</html>

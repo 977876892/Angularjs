@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<script src="angular.min.js"></script>
+	<script>
+		var app=angular.module("my",[]);
+		app.controller("demo",function($scope){
+            $scope.y=function(){
+            	$scope.x=!$scope.x;
+            }
+		});
+	</script>
+</head>
+<body ng-app="my" ng-controller="demo">
+	<button ng-click="y()">click</button>
+	<h2 ng-show="x">sairam</h2>
+
+</body>
+</html>

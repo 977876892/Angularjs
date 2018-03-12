@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+   <script>
+  	var obj=angular.module("myApp",[]);
+
+  	obj.controller("DemoController",
+  		function($scope){
+           $scope.emp=
+           [
+                  {name:"sai",job:"manager",no:10},
+                  {name:"jai",job:"programer",no:20},
+                  {name:"anu",job:"sales",no:30},
+                  {name:"hari",job:"sales",no:30},
+                  {name:"om",job:"programer",no:20},
+                  {name:"ram",job:"programer",no:20}
+           ];
+           
+           $scope.s2={name:"",job:"",no:""};
+           $scope.x=false;
+  	});
+  </script>
+</head>
+<body ng-app="myApp">
+	<div ng-controller="DemoController">
+		<table border="2">
+			<tr>
+				<th>emp name
+					<input type="text" ng-model="s2.name">
+				</th>
+			
+			
+				<td>
+					job
+					<select ng-model="s2.job","x=!x">
+						<option value="">all</option>
+						<option>manager</option>
+						<option>programer</option>
+						<option>sales</option>
+					</select>
+				</td>
+			
+			
+				<td>
+					no
+					<select ng-model="s2.no","x=!x">
+						<option value="">all</option>
+						<option value="10">manager</option>
+						<option value="20">programer</option>
+						<option value="30">sales</option>
+					</select>
+				</td>
+			</tr>
+			<tr ng-repeat="item in emp|filter:s2">
+				<td>{{item.name}}</td>
+				<td>{{item.job}}</td>
+				<td>{{item.no}}</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

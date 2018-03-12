@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<script src="angular.min.js"></script>
+	<script>
+		var obj=angular.module("myApp",[]);
+		obj.controller("demo",function($scope){
+			$scope.name="";
+			$scope.email="";
+			$scope.num="";
+
+		});
+	</script>
+</head>
+<body ng-app="myApp">
+	<div ng-controller="demo">
+		<form action="" method="get" name="frm" novalidate>
+			<table border="2">
+				<tr>
+					<td>Name</td>
+					<td>
+					   <input type="text" name="name" ng-model="name" required>
+					   <span ng-show="frm.name.$invalid && frm.name.$dirty">Enter ur name?</span>
+					 </td>
+				</tr>
+				<tr>
+					<td>Email</td>
+					<td><input type="email" name="email" ng-model="email" required></td>
+					<span ng-show="frm.email.$dirty && frm.email.$invalid">
+						<span ng-show="frm.email.$error.email">Wrong email id?</span>
+						<span ng-show="frm.email.$error.required">enter email id?</span>
+					</span>
+				</tr>
+				<tr>
+					<td>Number</td>
+					<td><input type="number" name="num" ng-model="num" minlength="10" required></td>
+					<span ng-show="frm.num.$dirty && frm.num.$invalid">
+						<span ng-show="frm.num.$error.minlength">10</span>
+						<span ng-show="frm.num.$error.required">enter num</span>
+					</span>
+				</tr>
+				<tr>
+					<td><input type="reset" value="Reset"></td>
+					<td><input type="submit" value="submit" ng-disabled="frm.$invalid"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

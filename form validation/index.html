@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script>
+    	var obj=angular.module("myApp",[]);
+
+    	obj.controller("DemoController",
+    		function($scope){
+                $scope.fname="";
+                $scope.lname="";
+                $scope.city="";
+                $scope.email="";
+                $scope.pincode="";
+    	});
+
+    </script>
+    <style>
+    	.c1{
+    		color: red;
+    	}
+    </style>
+</head>
+<body ng-app="myApp">
+	<div ng-controller="DemoController">
+		<form name="f1" action="" method="" novalidate>
+			<fieldset>
+				<legend>Registation</legend>
+				first name:
+				<input type="text" name="t1" ng-model="fname" ng-required="true">
+				<span class="c1" ng-show="f1.t1.$error.required && f1.t1.$dirty">
+					first name is required
+				</span><br/><br/>
+				last name:
+				<input type="text" name="t2" ng-model="lname" ng-required="true">
+				<span class="c1" ng-show="f1.t2.$error.required && f1.t2.$dirty">
+					last name is required
+				</span><br/><br/>
+				city name:
+				<input type="text" name="t3" ng-model="city" ng-minlength="3" ng-maxlength="10">
+				<span class="c1" ng-show="f1.t3.$error.minlength && f1.t3.$dirty">
+					city name 3enter
+				</span>
+				<span class="c1" ng-show="f1.t3.$error.maxlength && f1.t3.$dirty">
+					city name 10enter
+				</span><br/><br/>
+				email:
+				<input type="email" name="t4" ng-model="email">
+				<span class="c1" ng-show="f1.t4.$error.email && f1.t4.$dirty">
+					no valid
+				</span><br/><br/>
+				pin:
+				<input type="password" name="t5" ng-model="pincode" ng-pattern="/^\d$/">
+				<span class="c1" ng-show="f1.t4.$error.pattern && f1.t4.$dirty">
+					no valid
+				</span><br/>
+				<input type="submit" value="submit" ng-disabled="f1.$invalid">
+			</fieldset>
+		</form>
+	</div>
+</body>
+</html>
